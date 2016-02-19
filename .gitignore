@@ -1,9 +1,9 @@
-/[Ll]ibrary/
-/[Tt]emp/
-/[Oo]bj/
-/[Bb]uild/
-/[Bb]uilds/
-/Assets/AssetStoreTools*
+Project3/[Ll]ibrary/
+Project3/[Tt]emp/
+Project3/[Oo]bj/
+Project3/[Bb]uild/
+Project3/[Bb]uilds/
+Project3/Assets/AssetStoreTools*
 
 ExportedObj/
 *.csproj
@@ -22,3 +22,5 @@ sysinfo.txt
 
 *.apk
 *.unitypackage
+
+*~
