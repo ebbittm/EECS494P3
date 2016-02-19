@@ -1,0 +1,83 @@
+﻿using UnityEngine;
+using System.Collections;
+
+public class EnemyController : MonoBehaviour {
+    public enum State { WANDER, CHASE };
+    public NavMeshAgent Nav;
+    public float CurrentSpeed;
+
+    private State CurrentState;
+    private EnemySight Sight;
+
+    //wandering variables
+    public float WanderSpeed = 3.0f;
+    public GameObject[] PatrolPoints;
+
+    private int PatrolPointIndex;
+
+    //chasing variables
+    public float ChaseSpeed = 7.0f;
+    public float AlertWaitTime = 5.0f;
+    public GameObject Player;
+
+    private float AlertTimer;
+
+
+    void Awake () {
+        Nav = GetComponent<NavMeshAgent>();
+        Sight = GetComponentInChildren<EnemySight>();
+        Player = GameObject.FindGameObjectWithTag("Player");
+        CurrentState = State.WANDER;
+        CurrentSpeed = WanderSpeed;
+	}
+	
+	void Update () {
+        if(Sight.PlayerInView)
+        {
+            CurrentState = State.CHASE;
+        }
+        if (CurrentState == State.WANDER)
+        {
+            Wander();
+        }
+        else if (CurrentState == State.CHASE)
+        {
+            Chase();
+        }
+	}
+
+    void Wander()
+    {
+        Nav.speed = WanderSpeed;
+        if (Nav.remainingDistance < Nav.stoppingDistance)
+        {
+            PatrolPointIndex = Random.Range(0, PatrolPoints.Length);
+        }
+        Nav.destination = PatrolPoints[PatrolPointIndex].transform.position;
+
+    }
+
+    void Chase()
+    {
+        Nav.speed = ChaseSpeed;
+        if(Sight.PlayerInView)
+        {
+            Nav.destination = Sight.LastSeen;
+        }
+        else if(!Sight.PlayerInView)
+        {
+            if(!Sight.CheckIfVisible())
+            {
+                if(Nav.remainingDistance < Nav.stoppingDistance)
+                {
+                    AlertTimer += Time.deltaTime;
+                    if(AlertTimer >= AlertWaitTime)
+                    {
+                        AlertTimer = 0f;
+                        CurrentState = State.WANDER;
+                    }
+                }
+            }
+        }
+    }
+}

@@ -7,6 +7,9 @@ public class Player1Controller : MonoBehaviour {
     public static Player1Controller Instance;
     public static CharacterController CharacterController;
 
+    public Camera PlayerView;
+    private MouseLook Mouselook = new MouseLook();
+
     private bool CrouchToggled = false;
     public float CrouchScale = 2.5f;
     public float StandScale = 5.0f;
@@ -21,6 +24,8 @@ public class Player1Controller : MonoBehaviour {
     void Awake () {
         Instance = this;
         CharacterController = GetComponent<CharacterController>() as CharacterController;
+        PlayerView = Camera.main;
+        Mouselook.Init(transform, PlayerView.transform);
 	}
 	
 	void Update () {
@@ -36,7 +41,6 @@ public class Player1Controller : MonoBehaviour {
             transform.localScale = new Vector3(transform.localScale.x, yValue, transform.localScale.z);
             float changeDistance = distance * (transform.localScale.y - scale);
             transform.position += new Vector3(0, changeDistance, 0);
-            print(transform.localScale);
             if((MainPlayerController.Instance.CurrentState == State.STAND && transform.localScale.y == StandScale) ||
                 (MainPlayerController.Instance.CurrentState == State.CROUCH && transform.localScale.y == CrouchScale))
             {
@@ -73,7 +77,8 @@ public class Player1Controller : MonoBehaviour {
 
     void GetRotation()
     {
-        MainPlayerController.Instance.Rotation = new Vector3(0, Input.GetAxis("Mouse X"), 0);
+        Mouselook.LookRotation(transform, PlayerView.transform);
+        //MainPlayerController.Instance.Rotation = new Vector3(0, Input.GetAxis("Mouse X"), 0);
     }
 
     void GetAuxiliaryActionInput()
@@ -88,7 +93,6 @@ public class Player1Controller : MonoBehaviour {
         }
         if (Input.GetAxis("Run") > 0)
         {
-            print("Running");
             Run();
         }
         else
