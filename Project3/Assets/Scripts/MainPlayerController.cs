@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public enum State { STAND, CROUCH, CRAWL, RUN };
+public enum State { STAND, CROUCH, CRAWL, RUN, SLIDE };
 
 
 public class MainPlayerController : MonoBehaviour {
@@ -21,6 +21,9 @@ public class MainPlayerController : MonoBehaviour {
     public float RunSpeed = 10.0f;
     public float MoveSpeed = 5.0f;
 
+    public float SlideSpeed = 10.0f;
+    private Vector3 SlideDirection;
+
     public State CurrentState = State.STAND;
 
 
@@ -36,7 +39,7 @@ public class MainPlayerController : MonoBehaviour {
 
     void HandleMovement()
     {
-        Movement *= MoveSpeed; ;
+        Movement *= MoveSpeed;
         Movement = new Vector3(Movement.x, VerticalVelocity, Movement.z);
         HandleGravity();
         Player1Controller.CharacterController.Move(Movement * Time.deltaTime);
@@ -70,8 +73,9 @@ public class MainPlayerController : MonoBehaviour {
 
     public void HandleToggleCrouch()
     {
-        if(Player1Controller.CharacterController.isGrounded)
+        if (Player1Controller.CharacterController.isGrounded)
         {
+            print(CurrentState);
             if (CurrentState == State.STAND)
             {
                 MoveSpeed = CrouchSpeed;
@@ -86,6 +90,18 @@ public class MainPlayerController : MonoBehaviour {
                 transform.localScale = new Vector3(1.0f, 2.5f, 1.0f);
                 Player1Controller.Instance.CurrentScale = 5.0f;
             }
+            else if (CurrentState == State.RUN)
+            {
+                CurrentState = State.SLIDE;
+                MoveSpeed = SlideSpeed;
+                transform.localScale = new Vector3(1.5f, 5.0f, 1.5f);
+                Player1Controller.Instance.CurrentScale = 2.5f;
+            }
+            else if (CurrentState == State.SLIDE)
+            {
+                CurrentState = State.CROUCH;
+                MoveSpeed = CrouchSpeed;
+            }
         }
     }
 
@@ -93,14 +109,17 @@ public class MainPlayerController : MonoBehaviour {
     {
         if(Player1Controller.CharacterController.isGrounded && CurrentState == State.STAND)
         {
+            CurrentState = State.RUN;
             MoveSpeed = RunSpeed;
         }
     }
 
     public void HandleWalk()
     {
-        if (Player1Controller.CharacterController.isGrounded && CurrentState == State.STAND)
+        print("Should be walking");
+        if (Player1Controller.CharacterController.isGrounded && (CurrentState == State.STAND || CurrentState == State.RUN))
         {
+            CurrentState = State.STAND;
             MoveSpeed = WalkSpeed;
         }
     }

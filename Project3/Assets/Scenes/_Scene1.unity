@@ -425,7 +425,7 @@ MonoBehaviour:
   Sliding: 0
   Forward: {x: 0, y: 0, z: 0}
   Timer: 0
-  TimerMax: 0
+  TimerMax: 1
 --- !u!114 &203267458
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -449,6 +449,7 @@ MonoBehaviour:
   JumpSpeed: 10
   RunSpeed: 10
   MoveSpeed: 5
+  SlideSpeed: 10
   CurrentState: 0
 --- !u!1 &356552930
 GameObject:
@@ -764,7 +765,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 280d8c022b6dc56458649a44c4491b13, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1
