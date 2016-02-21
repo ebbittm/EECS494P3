@@ -6,7 +6,7 @@ using System.Text;
 using System;
 
 public class MapManager : MonoBehaviour {
-
+    
     public TextAsset mapFile; // the name of the file containing the map that will be loaded
     [Serializable]
    // the tile struct contains all the information necessary to place a prefab into the scene

@@ -13,7 +13,7 @@ public class MouseLook : MonoBehaviour {
     public float smoothTime = 5f;
 
     public bool ThroughPortal;
-    public GameObject Portal;
+    public Quaternion Portal;
 
     private Quaternion m_CharacterTargetRot;
     private Quaternion m_CameraTargetRot;
@@ -34,10 +34,8 @@ public class MouseLook : MonoBehaviour {
 
         if (ThroughPortal)
         {
-            character.localRotation = Portal.transform.rotation;
-            camera.localRotation = Portal.transform.rotation;
-            m_CharacterTargetRot = Portal.transform.rotation;
-            m_CameraTargetRot = Portal.transform.rotation;
+            m_CharacterTargetRot = Portal;
+            character.localRotation = Portal;
         }
         else {
             m_CharacterTargetRot *= Quaternion.Euler(0f, yRot, 0f);

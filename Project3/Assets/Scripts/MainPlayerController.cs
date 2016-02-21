@@ -128,19 +128,21 @@ public class MainPlayerController : MonoBehaviour {
 	// Triggers
 	void OnTriggerEnter(Collider other) {
 		if (other.gameObject.tag == "Portal") {
-			float oldY = this.transform.position.y;
+			float oldY = Player.transform.position.y;
 
-			Vector3 newPos = this.transform.position;
-			Quaternion newRot = this.transform.rotation;
-			Vector3 offset = new Vector3 (0, 0, 0);
+			Vector3 newPos = Player.transform.position;
+			Quaternion newRot = Player.transform.rotation;
 
-			bool canPortal = PortalManager.P.portalMove(other.gameObject.GetComponentInParent<Portal>().portalID, ref newPos, ref newRot, ref offset);
+			bool canPortal = PortalManager.P.portalMove(other.gameObject.GetComponentInParent<Portal>().portalID, ref newPos, ref newRot);
 
 			if (canPortal) {
+                MouseLook.Instance.ThroughPortal = true;
+                MouseLook.Instance.Portal = newRot;
+
 				newPos.y = oldY;
-				this.transform.position = newPos + offset;
-				this.transform.rotation = newRot;
-			}
+                Player.transform.position = newPos;
+                Player.transform.rotation = newRot;
+            }
 		}
 	}
 }

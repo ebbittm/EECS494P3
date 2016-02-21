@@ -43,7 +43,7 @@ public class PortalManager : MonoBehaviour {
 		}
 	}
 
-	public bool portalMove(int portalNum, ref Vector3 pos, ref Quaternion rot, ref Vector3 offset) {
+	public bool portalMove(int portalNum, ref Vector3 pos, ref Quaternion rot) {
 		if (!canPortal) {
 			return false;
 		}
@@ -62,11 +62,12 @@ public class PortalManager : MonoBehaviour {
 		canPortal = false;
 		Invoke ("turnOnPortal", .5f);
 
-		pos = portalList [nextPortal].transform.position;
 		rot = portalList [nextPortal].transform.rotation; // - portalList [portalNum].transform.rotation;
-		offset = portalList [nextPortal].transform.forward * (portalList [nextPortal].transform.localScale.x/2.1f);
 
-		return true;
+        Vector3 offset = portalList [nextPortal].transform.forward * (portalList [nextPortal].transform.localScale.x/2.1f);
+        pos = portalList[nextPortal].transform.position + offset;
+
+        return true;
 	}
 
 	void turnOnPortal() {

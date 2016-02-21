@@ -17,8 +17,9 @@ public class TestScript : MonoBehaviour {
     {
         if(other.gameObject.tag == "Player")
         {
-            MouseLook.Instance.Portal = gameObject;
-            MouseLook.Instance.ThroughPortal = true;
+            Vector3 Movement = new Vector3(0, 0.5f, 20);
+            Vector3 newPos = Movement - other.gameObject.transform.position;
+            Player1Controller.CharacterController.Move(newPos);
         }
     }
 }
