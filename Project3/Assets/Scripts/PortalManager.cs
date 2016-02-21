@@ -43,7 +43,7 @@ public class PortalManager : MonoBehaviour {
 		}
 	}
 
-	public bool portalMove(int portalNum, ref Vector3 pos, ref Quaternion rot) {
+	public bool portalMove(int portalNum, ref Vector3 pos, ref Quaternion rot, ref Vector3 offset) {
 		if (!canPortal) {
 			return false;
 		}
@@ -60,10 +60,11 @@ public class PortalManager : MonoBehaviour {
 
 		// Otherwise you'll just bounce back and forth between the portals
 		canPortal = false;
-		Invoke ("turnOnPortal", 3f);
+		Invoke ("turnOnPortal", .5f);
 
 		pos = portalList [nextPortal].transform.position;
-		rot = portalList [nextPortal].transform.rotation;
+		rot = portalList [nextPortal].transform.rotation; // - portalList [portalNum].transform.rotation;
+		offset = portalList [nextPortal].transform.forward * (portalList [nextPortal].transform.localScale.x/2.1f);
 
 		return true;
 	}
