@@ -123,4 +123,50 @@ public class MainPlayerController : MonoBehaviour {
             MoveSpeed = WalkSpeed;
         }
     }
+
+
+	// Triggers
+	void OnTriggerEnter(Collider other) {
+		if (other.gameObject.tag == "Portal") {
+			print ("PORTAL");
+			float oldY = this.transform.position.y;
+
+			Vector3 newPos = this.transform.position;
+			Quaternion newRot = this.transform.rotation;
+
+			bool canPortal = PortalManager.P.portalMove(other.gameObject.GetComponentInParent<Portal>().portalID, ref newPos, ref newRot);
+
+			if (canPortal) {
+				newPos.y = oldY;
+
+				print (this.transform.rotation);
+
+				this.transform.position = newPos;
+
+				// Rotation stuff here
+
+
+				this.transform.rotation = newRot;
+
+
+
+				/*
+
+				Rotation += newRot.eulerAngles;
+				Rotation.y += 90;
+
+				print (this.transform.rotation);
+
+				this.transform.Rotate (new Vector3 (0, 90, 0));
+
+				print (this.transform.rotation);
+
+				//Rotation = newRot.eulerAngles;
+
+				//print (Rotation);
+
+				*/
+			}
+		}
+	}
 }
