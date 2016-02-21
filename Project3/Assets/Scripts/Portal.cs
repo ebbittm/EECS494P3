@@ -7,21 +7,7 @@ public class Portal : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
+		//Debug.DrawRay (this.transform.position, this.transform.forward * 10, Color.red, 100);
 	}
 
-	/*
-	// Move to the player
-	void OnTriggerEnter(Collider other) {
-		if (other.gameObject.tag == "Portal") {
-			Portal portal = other.gameObject;
-			this.transform.position = PortalManager.P.portalMove(portal.GetComponent()<Portal>.portalID);
-		}
-	}
-	*/
 }
