@@ -175,7 +175,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 203267451}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: 0}
+  m_LocalPosition: {x: 0, y: 8.07, z: 0}
   m_LocalScale: {x: 1, y: 5, z: 1}
   m_Children:
   - {fileID: 642300802}
@@ -192,6 +192,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38f7fc29e9111df4e8ba5b00b257ea9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PlayerView: {fileID: 0}
   CrouchScale: 2.5
   StandScale: 5
   CurrentScale: 5
@@ -200,6 +201,7 @@ MonoBehaviour:
   Forward: {x: 0, y: 0, z: 0}
   Timer: 0
   TimerMax: 0
+  CloseToPuzzle: 0
 --- !u!114 &203267458
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -223,6 +225,7 @@ MonoBehaviour:
   JumpSpeed: 10
   RunSpeed: 10
   MoveSpeed: 5
+  SlideSpeed: 10
   CurrentState: 0
 --- !u!1 &480202777
 GameObject:

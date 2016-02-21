@@ -8,11 +8,11 @@ public class DoorController : MonoBehaviour
 
     public void OpenDoor()
     {
-        doorObj.GetComponent<Animation>().Play("open");
+        doorObj.GetComponent<Animation>().Play("Open");
     }
 
     public void CloseDoor()
     {
-        doorObj.GetComponent<Animation>().Play("close");
+        doorObj.GetComponent<Animation>().Play("Close");
     }
 }
