@@ -27,6 +27,7 @@ public class LightPuzzle : MonoBehaviour {
 	public BitArray levers;
 
     public GameObject[] Levers;
+	public bool solved = false;
 
 	void Awake(){
 		S = this;

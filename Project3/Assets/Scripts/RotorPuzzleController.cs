@@ -1,27 +1,18 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class RotorController : MonoBehaviour {
+public class RotorPuzzleController : MonoBehaviour {
 
-	public GameObject[] ui_rotors;
+	public TextMesh[] ui_rotors;
 
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
 	// Update is called once per frame
 	void Update () {
-		if (RotorPuzzle.S.solved)
-			return;
-		
 		SetRotors ();
 	}
 
 	void SetRotors(){
-		foreach (Rotor r in RotorPuzzle.S.rotors) {
-			//here set the ui represenation to be the same as the data
-			//ui_rotors
+		for (int i = 0; i < ui_rotors.Length; ++i) {
+			ui_rotors [i].text = RotorPuzzle.S.rotors [i].num.ToString ();
 		}
 	}
 }
