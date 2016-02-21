@@ -108,4 +108,20 @@ public class LightPuzzleController : MonoBehaviour {
 		UpdateLights ();
 		UpdateLevers ();
 	}
+
+    void OnTriggerStay(Collider other)
+    {
+        if (other.gameObject.tag == "Player")
+        {
+            Player1Controller.Instance.CloseToPuzzle = true;
+        }
+    }
+
+    void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.tag == "Player")
+        {
+            Player1Controller.Instance.CloseToPuzzle = false;
+        }
+    }
 }

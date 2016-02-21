@@ -2,8 +2,6 @@
 using System.Collections;
 
 public class Player1Controller : MonoBehaviour {
-    //This controller is used by Player 1, and controls the character's directional motion
-
     public static Player1Controller Instance;
     public static CharacterController CharacterController;
 
@@ -19,7 +17,9 @@ public class Player1Controller : MonoBehaviour {
     public bool Sliding = false;
     public Vector3 Forward;
     public float Timer = 0.0f;
-    public float TimerMax;
+    public float TimerMax = 10.0f;
+
+    public bool CloseToPuzzle;
     
     void Awake () {
         Instance = this;
@@ -47,6 +47,20 @@ public class Player1Controller : MonoBehaviour {
                 CrouchToggled = false;
             }
         }
+        
+
+        if(MainPlayerController.Instance.CurrentState == State.SLIDE)
+        {
+            Timer += Time.deltaTime;
+            if(Timer > TimerMax)
+            {
+                print(Timer);
+                print(TimerMax);
+                MainPlayerController.Instance.HandleToggleCrouch();
+                Timer = 0.0f;
+            }
+        }
+        
 
         MainPlayerController.Instance.UpdatePlayer();
     }
@@ -57,21 +71,28 @@ public class Player1Controller : MonoBehaviour {
         MainPlayerController.Instance.Movement = Vector3.zero;
         Transform position = MainPlayerController.Instance.Player.transform;
 
-        if(Input.GetKey(KeyCode.W))
+        if (MainPlayerController.Instance.CurrentState != State.SLIDE)
+        {
+            if (Input.GetKey(KeyCode.W))
+            {
+                MainPlayerController.Instance.Movement += position.forward;
+            }
+            if (Input.GetKey(KeyCode.A))
+            {
+                MainPlayerController.Instance.Movement -= position.right;
+            }
+            if (Input.GetKey(KeyCode.S))
+            {
+                MainPlayerController.Instance.Movement -= position.forward;
+            }
+            if (Input.GetKey(KeyCode.D))
+            {
+                MainPlayerController.Instance.Movement += position.right;
+            }
+        }
+        else
         {
             MainPlayerController.Instance.Movement += position.forward;
-        }
-        if (Input.GetKey(KeyCode.A))
-        {
-            MainPlayerController.Instance.Movement -= position.right;
-        }
-        if (Input.GetKey(KeyCode.S))
-        {
-            MainPlayerController.Instance.Movement -= position.forward;
-        }
-        if (Input.GetKey(KeyCode.D))
-        {
-            MainPlayerController.Instance.Movement += position.right;
         }
     }
 
@@ -90,6 +111,10 @@ public class Player1Controller : MonoBehaviour {
         if (Input.GetButtonDown("Crouch"))
         {
             ToggleCrouch();
+        }
+        if(Input.GetButtonDown("Interact"))
+        {
+            Interaction();
         }
         if (Input.GetAxis("Run") > 0)
         {
@@ -120,5 +145,24 @@ public class Player1Controller : MonoBehaviour {
     void Walk()
     {
         MainPlayerController.Instance.HandleWalk();
+    }
+
+    void Interaction()
+    {
+        if(CloseToPuzzle)
+        {
+            RaycastHit hitInfo;
+            Camera view = GetComponentInChildren<Camera>();
+            Vector3 position = MainPlayerController.Instance.Player.transform.position;
+            Vector3 forward = view.transform.forward;
+            print(forward);
+            if (Physics.Raycast(position, forward, out hitInfo))
+            {
+                if (hitInfo.collider.gameObject.tag == "Lever")
+                {
+                    hitInfo.collider.gameObject.GetComponent<LeverController>().ToggleSwitch();
+                }
+            }
+        }
     }
 }

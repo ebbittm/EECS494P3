@@ -5,6 +5,18 @@ TagManager:
   serializedVersion: 2
   tags:
   - Portal
+  - Switch
+  - OutsideDoor
+  - hiding_spot
+  - WireLoc
+  - ScrewdriverLoc
+  - FrontDoor
+  - GasolineLoc
+  - Dog
+  - FirstSpawn
+  - Enemy
+  - Lever
+  - PatrolPoint
   layers:
   - Default
   - TransparentFX
