@@ -65,7 +65,7 @@ public class MainPlayerController : MonoBehaviour {
 
     public void HandleJump()
     {
-        if (Player1Controller.CharacterController.isGrounded && CurrentState == State.STAND)
+        if (Player1Controller.CharacterController.isGrounded && (CurrentState == State.STAND || CurrentState == State.RUN))
         {
             VerticalVelocity = JumpSpeed;
         }

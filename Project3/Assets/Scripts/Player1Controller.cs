@@ -18,6 +18,8 @@ public class Player1Controller : MonoBehaviour {
     public Vector3 Forward;
     public float Timer = 0.0f;
     public float TimerMax = 10.0f;
+
+    public bool CloseToPuzzle;
     
     void Awake () {
         Instance = this;
@@ -110,6 +112,10 @@ public class Player1Controller : MonoBehaviour {
         {
             ToggleCrouch();
         }
+        if(Input.GetButtonDown("Interact"))
+        {
+            Interaction();
+        }
         if (Input.GetAxis("Run") > 0)
         {
             Run();
@@ -139,5 +145,24 @@ public class Player1Controller : MonoBehaviour {
     void Walk()
     {
         MainPlayerController.Instance.HandleWalk();
+    }
+
+    void Interaction()
+    {
+        if(CloseToPuzzle)
+        {
+            RaycastHit hitInfo;
+            Camera view = GetComponentInChildren<Camera>();
+            Vector3 position = MainPlayerController.Instance.Player.transform.position;
+            Vector3 forward = view.transform.forward;
+            print(forward);
+            if (Physics.Raycast(position, forward, out hitInfo))
+            {
+                if (hitInfo.collider.gameObject.tag == "Lever")
+                {
+                    hitInfo.collider.gameObject.GetComponent<LeverController>().ToggleSwitch();
+                }
+            }
+        }
     }
 }
