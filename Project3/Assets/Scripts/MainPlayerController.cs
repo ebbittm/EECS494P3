@@ -116,11 +116,31 @@ public class MainPlayerController : MonoBehaviour {
 
     public void HandleWalk()
     {
-        print("Should be walking");
+        //print("Should be walking");
         if (Player1Controller.CharacterController.isGrounded && (CurrentState == State.STAND || CurrentState == State.RUN))
         {
             CurrentState = State.STAND;
             MoveSpeed = WalkSpeed;
         }
     }
+
+
+	// Triggers
+	void OnTriggerEnter(Collider other) {
+		if (other.gameObject.tag == "Portal") {
+			float oldY = this.transform.position.y;
+
+			Vector3 newPos = this.transform.position;
+			Quaternion newRot = this.transform.rotation;
+			Vector3 offset = new Vector3 (0, 0, 0);
+
+			bool canPortal = PortalManager.P.portalMove(other.gameObject.GetComponentInParent<Portal>().portalID, ref newPos, ref newRot, ref offset);
+
+			if (canPortal) {
+				newPos.y = oldY;
+				this.transform.position = newPos + offset;
+				this.transform.rotation = newRot;
+			}
+		}
+	}
 }

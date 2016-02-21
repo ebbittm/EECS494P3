@@ -8,12 +8,14 @@ public class PortalManager : MonoBehaviour {
 	public List<Portal> portalList = new List<Portal>();
 	Dictionary<int, int> portalMap = new Dictionary<int, int>();
 
-	enum PortalMovement {
+	public enum PortalMovement {
 		pairs,
 		cyclic,
 		random
 	}
-	PortalMovement portalMovement = PortalMovement.pairs;
+	public PortalMovement portalMovement = PortalMovement.pairs;
+
+	bool canPortal = true;
 
 	void Awake () {
 		P = this;
@@ -24,6 +26,7 @@ public class PortalManager : MonoBehaviour {
 			for (int i=0; i< portalList.Count; i += 2) {
 				if (i < portalList.Count - 1) {
 					portalMap [i] = i + 1;
+					portalMap [i + 1] = i;
 				} else {
 					portalMap [i] = i;
 				}
@@ -40,7 +43,11 @@ public class PortalManager : MonoBehaviour {
 		}
 	}
 
-	public Vector3 portalMove(int portalNum) {
+	public bool portalMove(int portalNum, ref Vector3 pos, ref Quaternion rot, ref Vector3 offset) {
+		if (!canPortal) {
+			return false;
+		}
+
 		int nextPortal = portalNum;
 
 		if (portalMovement == PortalMovement.random) {
@@ -51,7 +58,18 @@ public class PortalManager : MonoBehaviour {
 			nextPortal = portalMap [portalNum];
 		}
 
-		return portalList [nextPortal].transform.position;
+		// Otherwise you'll just bounce back and forth between the portals
+		canPortal = false;
+		Invoke ("turnOnPortal", .5f);
 
+		pos = portalList [nextPortal].transform.position;
+		rot = portalList [nextPortal].transform.rotation; // - portalList [portalNum].transform.rotation;
+		offset = portalList [nextPortal].transform.forward * (portalList [nextPortal].transform.localScale.x/2.1f);
+
+		return true;
+	}
+
+	void turnOnPortal() {
+		canPortal = true;
 	}
 }
