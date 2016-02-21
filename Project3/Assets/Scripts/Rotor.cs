@@ -1,7 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class RotorController : MonoBehaviour {
+public class Rotor : MonoBehaviour {
+
+	public int num;
 
 	// Use this for initialization
 	void Start () {
