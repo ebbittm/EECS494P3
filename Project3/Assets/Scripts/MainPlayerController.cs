@@ -47,7 +47,7 @@ public class MainPlayerController : MonoBehaviour {
 
     void HandleRotation()
     {
-        transform.Rotate(Rotation * RotationSpeed);
+        //transform.Rotate(Rotation * RotationSpeed);
     }
 
     void HandleGravity()

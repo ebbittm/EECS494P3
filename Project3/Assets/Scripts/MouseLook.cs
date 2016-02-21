@@ -2,6 +2,7 @@
 using System.Collections;
 
 public class MouseLook : MonoBehaviour {
+    public static MouseLook Instance;
 
     public float XSensitivity = 2f;
     public float YSensitivity = 2f;
@@ -11,6 +12,8 @@ public class MouseLook : MonoBehaviour {
     public bool smooth;
     public float smoothTime = 5f;
 
+    public bool ThroughPortal;
+    public GameObject Portal;
 
     private Quaternion m_CharacterTargetRot;
     private Quaternion m_CameraTargetRot;
@@ -18,6 +21,7 @@ public class MouseLook : MonoBehaviour {
 
     public void Init(Transform character, Transform camera)
     {
+        Instance = this;
         m_CharacterTargetRot = character.localRotation;
         m_CameraTargetRot = camera.localRotation;
     }
@@ -28,24 +32,34 @@ public class MouseLook : MonoBehaviour {
         float yRot = Input.GetAxis("Mouse X") * XSensitivity;
         float xRot = Input.GetAxis("Mouse Y") * YSensitivity;
 
-        m_CharacterTargetRot *= Quaternion.Euler(0f, yRot, 0f);
-        m_CameraTargetRot *= Quaternion.Euler(-xRot, 0f, 0f);
-
-        if (clampVerticalRotation)
-            m_CameraTargetRot = ClampRotationAroundXAxis(m_CameraTargetRot);
-
-        if (smooth)
+        if (ThroughPortal)
         {
-            character.localRotation = Quaternion.Slerp(character.localRotation, m_CharacterTargetRot,
-                smoothTime * Time.deltaTime);
-            camera.localRotation = Quaternion.Slerp(camera.localRotation, m_CameraTargetRot,
-                smoothTime * Time.deltaTime);
+            character.localRotation = Portal.transform.rotation;
+            camera.localRotation = Portal.transform.rotation;
+            m_CharacterTargetRot = Portal.transform.rotation;
+            m_CameraTargetRot = Portal.transform.rotation;
         }
-        else
-        {
-            character.localRotation = m_CharacterTargetRot;
-            camera.localRotation = m_CameraTargetRot;
+        else {
+            m_CharacterTargetRot *= Quaternion.Euler(0f, yRot, 0f);
+            m_CameraTargetRot *= Quaternion.Euler(-xRot, 0f, 0f);
+
+            if (clampVerticalRotation)
+                m_CameraTargetRot = ClampRotationAroundXAxis(m_CameraTargetRot);
+
+            if (smooth)
+            {
+                character.localRotation = Quaternion.Slerp(character.localRotation, m_CharacterTargetRot,
+                    smoothTime * Time.deltaTime);
+                camera.localRotation = Quaternion.Slerp(camera.localRotation, m_CameraTargetRot,
+                    smoothTime * Time.deltaTime);
+            }
+            else
+            {
+                character.localRotation = m_CharacterTargetRot;
+                camera.localRotation = m_CameraTargetRot;
+            }
         }
+        ThroughPortal = false;
     }
 
 
