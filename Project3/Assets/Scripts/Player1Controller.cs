@@ -165,4 +165,13 @@ public class Player1Controller : MonoBehaviour {
             }
         }
     }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "Portal")
+        {
+            MouseLook.Instance.Portal = gameObject;
+            MouseLook.Instance.ThroughPortal = true;
+        }
+    }
 }
