@@ -77,7 +77,6 @@ public class MapManager : MonoBehaviour {
                 pos.z = y * floor.transform.localScale.z;
                     
                 floor.transform.position = pos; // place the floor tile
-                print(pos);
             }
         }
     }
@@ -90,7 +89,7 @@ public class MapManager : MonoBehaviour {
     // loads a map into the scene based on its filename
     void LoadMapFile(TextAsset file) {
         try {
-            print("Loading map");
+            print("Loading map...");
             string[] lines = file.text.Trim().Split('\n'); // split the file into lines
             int height = lines.Length; // the number of tiles on the y axis
             int width = lines[0].Length;
@@ -101,7 +100,7 @@ public class MapManager : MonoBehaviour {
                     print("Error! The line at y=" + y + " has width " + line.Length + ", expected width of " + width + ".");
                 }
                 line = CleanLine(line); // remove characters not meant to be parsed
-                print("Line " + y.ToString() + ": \"" + line + "\"");
+                //print("Line " + y.ToString() + ": \"" + line + "\"");
                 if (line != null) {
                     for (int x = 0; x < line.Length; x++) { // for each character
                         Vector3 pos = new Vector3(x, 0f, y); // create a position vector based on its position in the text file
@@ -116,6 +115,7 @@ public class MapManager : MonoBehaviour {
             }
 
             PlaceFloor(width, height); // place flooring underneath the map
+            print("Map loaded!");
         }
         catch (Exception e) { // catch exceptions
             Console.WriteLine("{0}\n", e.Message);
