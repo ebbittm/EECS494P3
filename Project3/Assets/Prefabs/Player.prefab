@@ -711,7 +711,7 @@ MonoBehaviour:
   TerminalVelocity: 20
   VerticalVelocity: 0
   RotationSpeed: 10
-  WalkSpeed: 5
+  WalkSpeed: 12
   CrouchSpeed: 3
   JumpSpeed: 10
   RunSpeed: 10
