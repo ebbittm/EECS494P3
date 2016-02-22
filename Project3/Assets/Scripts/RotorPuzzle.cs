@@ -9,7 +9,7 @@ public class RotorPuzzle : MonoBehaviour {
 	public int currRotor = 0;
 	public bool solved = false;
 
-	public string solution = "12345";
+	public string solution = "75309";
 
 	void Awake(){
 		S = this;
