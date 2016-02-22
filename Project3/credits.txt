@@ -1,1 +1,2 @@
 Light Effect: github.com/robertcupisz
+Wall and floor textures from: http://telias.free.fr/textures_menu.html (found on asset store)

@@ -3,23 +3,39 @@ using System.Collections;
 
 public class TestScript : MonoBehaviour {
 
+    public GameObject upArrow;
+    public Canvas canvas;
+    public GameObject upArrowSpawn;
+
 	// Use this for initialization
-	void Start () {
-	
-	}
+	void Awake () {
+       
+    }
 	
 	// Update is called once per frame
 	void Update () {
-	
+        
 	}
 
-    void OnTriggerEnter(Collider other)
+    void SpawnButtons()
     {
-        if(other.gameObject.tag == "Player")
+        GameObject arrow;
+        //arrow.transform.SetParent(canvas.transform);
+        arrow = Instantiate(upArrow) as GameObject;
+        arrow.transform.SetParent(canvas.transform);
+        arrow.transform.position = upArrowSpawn.transform.position;
+    }
+
+    void OnTriggerStay(Collider other)
+    {
+        if (other.gameObject.tag == "Player")
         {
-            Vector3 Movement = new Vector3(0, 0.5f, 20);
-            Vector3 newPos = Movement - other.gameObject.transform.position;
-            Player1Controller.CharacterController.Move(newPos);
+            print("player");
+            if(Input.GetKeyDown(KeyCode.E))
+            {
+                print("e");
+                SpawnButtons();
+            }
         }
     }
 }
