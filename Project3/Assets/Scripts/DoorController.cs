@@ -9,10 +9,12 @@ public class DoorController : MonoBehaviour
     public void OpenDoor()
     {
         doorObj.GetComponent<Animation>().Play("Open");
+        isOpen = true;
     }
 
     public void CloseDoor()
     {
+        isOpen = false;
         doorObj.GetComponent<Animation>().Play("Close");
     }
 }

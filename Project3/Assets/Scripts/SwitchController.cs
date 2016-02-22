@@ -13,10 +13,16 @@ public class SwitchController : MonoBehaviour {
     public Material OnRed;
     public Material OnGreen;
 
+    public GameObject LightPuzzle;
+
     public bool open = false;
 
     void Update()
     {
+        if (LightPuzzle.GetComponent<LightPuzzle>().solved && !open)
+        {
+            open = true;
+        }
         if(open)
         {
             OffLight.GetComponent<Renderer>().material = OnRed;
@@ -29,7 +35,7 @@ public class SwitchController : MonoBehaviour {
         }
     }
 
-    void OnMouseDown()
+    public void DoorInteract()
     {
         if (Door.GetComponent<DoorController>().isOpen)
         {
@@ -38,6 +44,21 @@ public class SwitchController : MonoBehaviour {
         else
         {
             Door.GetComponent<DoorController>().OpenDoor();
+        }
+    }
+    void OnTriggerStay(Collider other)
+    {
+        if (other.gameObject.tag == "Player")
+        {
+            Player1Controller.Instance.CloseToPuzzle = true;
+        }
+    }
+
+    void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.tag == "Player")
+        {
+            Player1Controller.Instance.CloseToPuzzle = false;
         }
     }
 }
