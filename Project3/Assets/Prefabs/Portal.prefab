@@ -44,7 +44,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100390}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: -0.00000016292068}
-  m_LocalPosition: {x: -30, y: 4, z: -20}
+  m_LocalPosition: {x: -30, y: 3.5, z: -20}
   m_LocalScale: {x: 12, y: 7, z: 12}
   m_Children:
   - {fileID: 491606}
@@ -98,7 +98,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
-  - {fileID: 2100000, guid: def7fdd6357dd43f1aa093a971b77910, type: 2}
+  - {fileID: 2100000, guid: a6fa5bd2d2af7664685ca22809135b94, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1
@@ -178,7 +178,7 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: def7fdd6357dd43f1aa093a971b77910, type: 2}
+      objectReference: {fileID: 2100000, guid: a6fa5bd2d2af7664685ca22809135b94, type: 2}
     - target: {fileID: 0}
       propertyPath: m_LocalScale.x
       value: 12
@@ -190,6 +190,10 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_LocalScale.y
       value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_LocalPosition.y
+      value: 3.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
