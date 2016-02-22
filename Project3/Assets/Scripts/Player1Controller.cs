@@ -20,6 +20,8 @@ public class Player1Controller : MonoBehaviour {
     public float TimerMax = 10.0f;
 
     public bool CloseToPuzzle;
+
+    public GameObject Compass;
     
     void Awake () {
         Instance = this;
@@ -116,6 +118,10 @@ public class Player1Controller : MonoBehaviour {
         {
             Interaction();
         }
+        if(Input.GetKeyDown(KeyCode.C))
+        {
+            ToggleCompass();
+        }
         if (Input.GetAxis("Run") > 0)
         {
             Run();
@@ -162,7 +168,22 @@ public class Player1Controller : MonoBehaviour {
                 {
                     hitInfo.collider.gameObject.GetComponent<LeverController>().ToggleSwitch();
                 }
+                else if (hitInfo.collider.gameObject.tag == "Switch")
+                {
+                    hitInfo.collider.gameObject.GetComponent<SwitchController>().DoorInteract();
+                }
             }
+        }
+    }
+
+    void ToggleCompass()
+    {
+        if(Compass.activeSelf)
+        {
+            Compass.SetActive(false);
+        }
+        else {
+            Compass.SetActive(true);
         }
     }
 }
