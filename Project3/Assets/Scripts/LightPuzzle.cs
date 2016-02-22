@@ -26,7 +26,10 @@ public class LightPuzzle : MonoBehaviour {
 	public BitArray toggled_lights;
 	public BitArray levers;
 
+	private BitArray solution;
+
     public GameObject[] Levers;
+	public bool solved = false;
 
 	void Awake(){
 		S = this;
@@ -36,12 +39,26 @@ public class LightPuzzle : MonoBehaviour {
 	void Start () {
 		toggled_lights = new BitArray (5, true);
 		levers = new BitArray (3, false);
+		solution = new BitArray (3, true);
+		solution [1] = false;
 	}
 	
 	// Update is called once per frame
 	//Listen for input from P2s controller to toggle the lights above the door
 	void Update () {
 		//GetToggleInput ();
+		if (!solved) {
+			CheckForSolution ();
+		}
+	}
+
+	void CheckForSolution(){
+		for (int i = 0; i < levers.Length; ++i) {
+			if (levers [i] != solution [i]) {
+				return;
+			}
+		}
+		solved = true;
 	}
 
 	/*void GetToggleInput(){

@@ -111,7 +111,7 @@ public class LightPuzzleController : MonoBehaviour {
 
     void OnTriggerStay(Collider other)
     {
-        if (other.gameObject.tag == "Player")
+		if (other.gameObject.tag == "Player" && !LightPuzzle.S.solved)
         {
             Player1Controller.Instance.CloseToPuzzle = true;
         }
@@ -119,7 +119,7 @@ public class LightPuzzleController : MonoBehaviour {
 
     void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.tag == "Player")
+		if (other.gameObject.tag == "Player" && !LightPuzzle.S.solved)
         {
             Player1Controller.Instance.CloseToPuzzle = false;
         }

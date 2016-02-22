@@ -53,7 +53,10 @@ public class MapManager : MonoBehaviour {
             Vector3 bounds = obj.GetComponent<Renderer>().bounds.size; // get object bounds
             pos.y = bounds.y / 2.0f;// determine y placement
 
-            obj.transform.position = pos; // place the game object in the correct position
+			pos.x *= obj.transform.localScale.x;
+			pos.z *= obj.transform.localScale.z;
+
+			obj.transform.position = pos; // place the game object in the correct position
         }
 
         if (map[c].needsFloor) { // if this object needs floor underneath it
@@ -62,6 +65,10 @@ public class MapManager : MonoBehaviour {
             // determine the height of the object for correct y placement
             Vector3 floorBounds = floor.GetComponent<Renderer>().bounds.size; // get floor bounds
             pos.y = 0f - (floorBounds.y / 2f) ; // determine y placement
+
+			pos.x *= floor.transform.localScale.x;
+			pos.z *= floor.transform.localScale.z;
+
             floor.transform.position = pos; // place the floor tile underneath the object
         }
     }
