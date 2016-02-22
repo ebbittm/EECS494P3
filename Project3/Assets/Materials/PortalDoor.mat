@@ -234,7 +234,7 @@ Material:
       data:
         first:
           name: _TintColor
-        second: {r: 0.60294116, g: 0.22166954, b: 0.22166954, a: 0.5}
+        second: {r: 0.3148789, g: 0.8235294, b: 0.31838682, a: 0.5}
       data:
         first:
           name: _TreeInstanceColor
