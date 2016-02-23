@@ -46,6 +46,13 @@ public class SwitchController : MonoBehaviour {
             Door.GetComponent<DoorController>().OpenDoor();
         }
     }
+
+	public void BarrierInteract(){
+		if (!Door.GetComponent<DoorController> ().isOpen) {
+			Door.GetComponent<DoorController> ().RemoveBarrier ();
+		}
+	}
+
     void OnTriggerStay(Collider other)
     {
         if (other.gameObject.tag == "Player")
