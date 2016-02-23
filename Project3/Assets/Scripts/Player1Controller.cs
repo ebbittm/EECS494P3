@@ -114,10 +114,15 @@ public class Player1Controller : MonoBehaviour {
         {
             ToggleCrouch();
         }
-        if(Input.GetButtonDown("Interact"))
+		if(Input.GetButtonDown("Interact"))
         {
             Interaction();
         }
+		/*
+		if (Input.GetKeyDown (KeyCode.E)) {
+			Interaction ();
+		}
+		*/
         if(Input.GetKeyDown(KeyCode.C))
         {
             ToggleCompass();
@@ -153,14 +158,26 @@ public class Player1Controller : MonoBehaviour {
         MainPlayerController.Instance.HandleWalk();
     }
 
+	//Need the duplication or refactoring because the Switch is no longer CloseToPuzzle
     void Interaction()
     {
+		RaycastHit hitInfo;
+		Camera view = GetComponentInChildren<Camera>();
+		Vector3 position = MainPlayerController.Instance.Player.transform.position;
+		Vector3 forward = view.transform.forward;
+		if(Physics.Raycast(position, forward, out hitInfo)){
+			if (hitInfo.collider.gameObject.tag == "Switch" && LightPuzzle.S.solved)
+			{
+				//hitInfo.collider.gameObject.GetComponent<SwitchController>().DoorInteract();
+				hitInfo.collider.gameObject.GetComponent<SwitchController>().BarrierInteract();
+			}
+		}
         if(CloseToPuzzle)
         {
-            RaycastHit hitInfo;
-            Camera view = GetComponentInChildren<Camera>();
-            Vector3 position = MainPlayerController.Instance.Player.transform.position;
-            Vector3 forward = view.transform.forward;
+            
+            //Camera view = GetComponentInChildren<Camera>();
+            //Vector3 position = MainPlayerController.Instance.Player.transform.position;
+            //Vector3 forward = view.transform.forward;
             print(forward);
             if (Physics.Raycast(position, forward, out hitInfo))
             {
@@ -168,10 +185,7 @@ public class Player1Controller : MonoBehaviour {
                 {
                     hitInfo.collider.gameObject.GetComponent<LeverController>().ToggleSwitch();
                 }
-                else if (hitInfo.collider.gameObject.tag == "Switch")
-                {
-                    hitInfo.collider.gameObject.GetComponent<SwitchController>().DoorInteract();
-                }
+                
             }
         }
     }

@@ -13,7 +13,6 @@ public class MapManager : MonoBehaviour {
     public struct tile {
         public char character;
         public GameObject prefab;
-        public bool needsFloor;
     }
     public tile[] tileKey; // the actual mappings
     public GameObject floorPrefab; // the prefab used for flooring
@@ -58,18 +57,27 @@ public class MapManager : MonoBehaviour {
 
 			obj.transform.position = pos; // place the game object in the correct position
         }
+    }
 
-        if (map[c].needsFloor) { // if this object needs floor underneath it
-            GameObject floor = Instantiate(this.floorPrefab); // make the floor
+    // places flooring underneath the entire map
+    void PlaceFloor(int width, int height) {
+        for (int x = 0; x < width; x++) { // horizontal tiling
+            for (int y = 0; y < height; y++) { // vertical tiling
+                Vector3 pos = new Vector3();
 
-            // determine the height of the object for correct y placement
-            Vector3 floorBounds = floor.GetComponent<Renderer>().bounds.size; // get floor bounds
-            pos.y = 0f - (floorBounds.y / 2f) ; // determine y placement
+                // for each map square
+                GameObject floor = Instantiate(this.floorPrefab); // make the floor object
 
-			pos.x *= floor.transform.localScale.x;
-			pos.z *= floor.transform.localScale.z;
+                // determine the height of the object for correct y placement
+                Vector3 floorBounds = floor.GetComponent<Renderer>().bounds.size; // get floor bounds
+                pos.y = 0f - (floorBounds.y / 2f); // determine y placement
 
-            floor.transform.position = pos; // place the floor tile underneath the object
+                // scale position based on floor tile size
+                pos.x = x * floor.transform.localScale.x;
+                pos.z = y * floor.transform.localScale.z;
+                    
+                floor.transform.position = pos; // place the floor tile
+            }
         }
     }
 
@@ -81,14 +89,18 @@ public class MapManager : MonoBehaviour {
     // loads a map into the scene based on its filename
     void LoadMapFile(TextAsset file) {
         try {
-            print("Loading map");
+            print("Loading map...");
             string[] lines = file.text.Trim().Split('\n'); // split the file into lines
             int height = lines.Length; // the number of tiles on the y axis
+            int width = lines[0].Length;
             string line;
             for(int y = height-1; y > -1; y--) {
                 line = lines[y];
+                if (line.Length != width) {
+                    print("Error! The line at y=" + y + " has width " + line.Length + ", expected width of " + width + ".");
+                }
                 line = CleanLine(line); // remove characters not meant to be parsed
-                print("Line " + y.ToString() + ": \"" + line + "\"");
+                //print("Line " + y.ToString() + ": \"" + line + "\"");
                 if (line != null) {
                     for (int x = 0; x < line.Length; x++) { // for each character
                         Vector3 pos = new Vector3(x, 0f, y); // create a position vector based on its position in the text file
@@ -101,6 +113,9 @@ public class MapManager : MonoBehaviour {
                     }
                 }
             }
+
+            PlaceFloor(width, height); // place flooring underneath the map
+            print("Map loaded!");
         }
         catch (Exception e) { // catch exceptions
             Console.WriteLine("{0}\n", e.Message);

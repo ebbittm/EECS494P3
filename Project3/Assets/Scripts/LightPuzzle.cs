@@ -46,7 +46,7 @@ public class LightPuzzle : MonoBehaviour {
 	// Update is called once per frame
 	//Listen for input from P2s controller to toggle the lights above the door
 	void Update () {
-		//GetToggleInput ();
+		GetToggleInput ();
 		if (!solved) {
 			CheckForSolution ();
 		}
@@ -61,16 +61,16 @@ public class LightPuzzle : MonoBehaviour {
 		solved = true;
 	}
 
-	/*void GetToggleInput(){
+	void GetToggleInput(){
 		if (Input.GetKeyDown (KeyCode.U)) {
-			HandleInput ('u');
+			HandleInput ("Lever0");
 		} else if (Input.GetKeyDown(KeyCode.I)){
-			HandleInput('i');
+			HandleInput("Lever1");
 		} else if (Input.GetKeyDown(KeyCode.O)){ //The letter
-			HandleInput('o');
+			HandleInput("Lever2");
 		}
 	}
-    */
+    
 
     //This is the function that implements the logic of flipping lights
     public void HandleInput(string Switch) {

@@ -17,4 +17,10 @@ public class DoorController : MonoBehaviour
         isOpen = false;
         doorObj.GetComponent<Animation>().Play("Close");
     }
+
+	//Interpolates the Barrier away with BarrierInterpolator
+	public void RemoveBarrier(){
+		BarrierInterpolator.S.ready = true;
+		isOpen = true;
+	}
 }
