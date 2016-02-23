@@ -166,7 +166,7 @@ public class Player1Controller : MonoBehaviour {
 		Vector3 position = MainPlayerController.Instance.Player.transform.position;
 		Vector3 forward = view.transform.forward;
 		if(Physics.Raycast(position, forward, out hitInfo)){
-			if (hitInfo.collider.gameObject.tag == "Switch")
+			if (hitInfo.collider.gameObject.tag == "Switch" && LightPuzzle.S.solved)
 			{
 				//hitInfo.collider.gameObject.GetComponent<SwitchController>().DoorInteract();
 				hitInfo.collider.gameObject.GetComponent<SwitchController>().BarrierInteract();

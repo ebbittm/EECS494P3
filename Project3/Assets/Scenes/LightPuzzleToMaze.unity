@@ -766,23 +766,6 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 1483259138}
   m_Script: {fileID: 11500000, guid: 89bed76e4946647908083f4d081e5ed6, type: 3}
---- !u!1 &968491002 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 156216, guid: c4506d27a7ad64b88ad8628e5c39c300, type: 2}
-  m_PrefabInternal: {fileID: 1979321372}
---- !u!114 &968491007
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 968491002}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 689c3df8b57b8c34fbba1997b7acc48d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  doorObj: {fileID: 968491002}
-  isOpen: 0
 --- !u!1 &1369652743
 GameObject:
   m_ObjectHideFlags: 0
