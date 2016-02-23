@@ -730,7 +730,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Needle: {fileID: 178104}
-  Target: {fileID: 0}
+  Target: {fileID: 166496, guid: ba41f80d93026ae4685e9edb023bda7c, type: 2}
 --- !u!124 &12459810
 Behaviour:
   m_ObjectHideFlags: 1
