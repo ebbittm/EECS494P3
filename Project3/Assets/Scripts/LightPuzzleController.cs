@@ -113,7 +113,7 @@ public class LightPuzzleController : MonoBehaviour {
     {
 		if (other.gameObject.tag == "Player" && !LightPuzzle.S.solved)
         {
-            Player1Controller.Instance.CloseToPuzzle = true;
+            //Player1Controller.Instance.CloseToPuzzle = true;
         }
     }
 
@@ -121,7 +121,7 @@ public class LightPuzzleController : MonoBehaviour {
     {
 		if (other.gameObject.tag == "Player" && !LightPuzzle.S.solved)
         {
-            Player1Controller.Instance.CloseToPuzzle = false;
+            //Player1Controller.Instance.CloseToPuzzle = false;
         }
     }
 }

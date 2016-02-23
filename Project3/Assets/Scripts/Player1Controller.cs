@@ -172,15 +172,18 @@ public class Player1Controller : MonoBehaviour {
 				hitInfo.collider.gameObject.GetComponent<SwitchController>().BarrierInteract();
 			}
 		}
-        if(CloseToPuzzle)
+
+        //add the CloseToPuzzle back in after presentation
+        if(true)
         {
             
             //Camera view = GetComponentInChildren<Camera>();
             //Vector3 position = MainPlayerController.Instance.Player.transform.position;
             //Vector3 forward = view.transform.forward;
             print(forward);
-            if (Physics.Raycast(position, forward, out hitInfo))
+            if (Physics.Raycast(view.transform.position, forward, out hitInfo))
             {
+                print(hitInfo.collider.gameObject);
                 if (hitInfo.collider.gameObject.tag == "Lever")
                 {
                     hitInfo.collider.gameObject.GetComponent<LeverController>().ToggleSwitch();

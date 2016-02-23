@@ -3,7 +3,7 @@ using System.Collections;
 
 public class EnemySight : MonoBehaviour {
 
-    public float FieldOfView = 90f;
+    public float FieldOfView = 110f;
     public bool PlayerInView;
     public bool PlayerInRadius;
     public Vector3 LastSeen;
@@ -30,6 +30,7 @@ public class EnemySight : MonoBehaviour {
                 {
                     print("can see player");
                     PlayerInView = true;
+                    FieldOfView = 180f;
                     LastSeen = Player.transform.position;
                 }
             }
@@ -60,6 +61,7 @@ public class EnemySight : MonoBehaviour {
                 return true;
             }
         }
+        FieldOfView = 110f;
         return false;
     }
 }
