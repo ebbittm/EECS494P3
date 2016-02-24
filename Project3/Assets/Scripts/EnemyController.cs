@@ -67,7 +67,7 @@ public class EnemyController : MonoBehaviour {
         }
         else if(!Sight.PlayerInView)
         {
-            if(!Sight.CheckIfVisible())
+            if(!Sight.PlayerInRadius)
             {
                 if(Nav.remainingDistance < Nav.stoppingDistance)
                 {
