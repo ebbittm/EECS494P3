@@ -42,6 +42,7 @@ public class MapManager : MonoBehaviour {
     void PlaceObject(char c, Vector3 pos) {
         if (!map.ContainsKey(c)) { // if the character is unrecognized
             print("Error: unrecognized tile found in map at position: (" + pos.x.ToString() + "," + pos.z.ToString() + ")");
+			print (c);
         }
         GameObject prefab = map[c].prefab; // get the prefab corresponding to the character
 

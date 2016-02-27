@@ -39,14 +39,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f18fc80ea0428147b02894443265729, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mapFile: {fileID: 4900000, guid: cb90db8445d42b248910532467e4ac52, type: 3}
+  mapFile: {fileID: 4900000, guid: a30de9e3f177f44b6b2ae22ddd0b1fd5, type: 3}
   tileKey:
   - character: 32
     prefab: {fileID: 0}
-    needsFloor: 1
   - character: 35
     prefab: {fileID: 165110, guid: e6d17952ae0e83f4783c8226fc1d4e0d, type: 2}
-    needsFloor: 1
+  - character: 80
+    prefab: {fileID: 100390, guid: cf6c8fc21c0b9427e9afd945300b617c, type: 2}
+  - character: 68
+    prefab: {fileID: 156216, guid: c4506d27a7ad64b88ad8628e5c39c300, type: 2}
+  - character: 76
+    prefab: {fileID: 128640, guid: e30597d0deb9b417fac81d42ec64ad72, type: 2}
   floorPrefab: {fileID: 187854, guid: 1c164ec313bf7d546aee8701de7f7b3d, type: 2}
 --- !u!1001 &100100000
 Prefab:
