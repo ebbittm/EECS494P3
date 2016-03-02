@@ -3,9 +3,11 @@ using System.Collections;
 
 public class OxygenController : MonoBehaviour {
 
-    public float MaxOxygen = 100f;
+    public static OxygenController Instance;
+
+    public float MaxOxygen = 1.0f;
     public float CurrentOxygen = 1f;
-    public float OxygenLoss = 0.5f;
+    public float OxygenLoss = 0.05f;
     public float OxygenTankLength;
     public float LastTime = 0f;
 
@@ -15,6 +17,7 @@ public class OxygenController : MonoBehaviour {
     public GUIBarScript g;
 
 	void Awake () {
+        Instance = this;
         OxygenTankLength = Screen.width / 2;
         //g = new GUIBarScript();
 	}
@@ -30,15 +33,12 @@ public class OxygenController : MonoBehaviour {
 
     public void AddOxygen(float amount)
     {
-        CurrentOxygen += amount;
-        if(CurrentOxygen > MaxOxygen)
-        {
-            CurrentOxygen = MaxOxygen;
-        }
-        OxygenTankLength = (Screen.width / 2) * (CurrentOxygen / MaxOxygen);
+        CurrentOxygen = amount;
+        g.SetNewValue(CurrentOxygen);
+        //OxygenTankLength = (Screen.width / 2) * (CurrentOxygen / MaxOxygen);
     }
 
-    void LoseOxygen()
+    public void LoseOxygen()
     {
         CurrentOxygen -= OxygenLoss;
     }

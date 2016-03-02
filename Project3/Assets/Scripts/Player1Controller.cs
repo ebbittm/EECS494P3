@@ -22,6 +22,8 @@ public class Player1Controller : MonoBehaviour {
     public bool CloseToPuzzle;
     public bool ArrowPuzzle;
 
+    public bool Dead;
+
     public GameObject Compass;
     
     void Awake () {
@@ -57,8 +59,6 @@ public class Player1Controller : MonoBehaviour {
             Timer += Time.deltaTime;
             if(Timer > TimerMax)
             {
-                print(Timer);
-                print(TimerMax);
                 MainPlayerController.Instance.HandleToggleCrouch();
                 Timer = 0.0f;
             }
@@ -66,6 +66,7 @@ public class Player1Controller : MonoBehaviour {
         
 
         MainPlayerController.Instance.UpdatePlayer();
+        PlayerDead();
     }
 
     void GetMovement()
@@ -205,6 +206,17 @@ public class Player1Controller : MonoBehaviour {
         }
         else {
             Compass.SetActive(true);
+        }
+    }
+
+    void PlayerDead()
+    {
+        if (OxygenController.Instance.CurrentOxygen <= 0)
+        {
+            //player is dead
+            Dead = true;
+            Compass.SetActive(false);
+
         }
     }
 }

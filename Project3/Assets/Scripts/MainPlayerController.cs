@@ -85,10 +85,22 @@ public class MainPlayerController : MonoBehaviour {
             }
             else if (CurrentState == State.CROUCH)
             {
-                MoveSpeed = WalkSpeed;
-                CurrentState = State.STAND;
-                transform.localScale = new Vector3(1.0f, 2.5f, 1.0f);
-                Player1Controller.Instance.CurrentScale = 5.0f;
+                RaycastHit hitInfo;
+                bool under = false;
+                if(Physics.Raycast(Player.transform.position, Player.transform.up, out hitInfo))
+                {
+                    if(hitInfo.collider.gameObject.tag == "Obstacle")
+                    {
+                        under = true;
+                    }
+                }
+                if (!under)
+                {
+                    MoveSpeed = WalkSpeed;
+                    CurrentState = State.STAND;
+                    transform.localScale = new Vector3(1.0f, 2.5f, 1.0f);
+                    Player1Controller.Instance.CurrentScale = 5.0f;
+                }
             }
             else if (CurrentState == State.RUN)
             {
@@ -144,5 +156,27 @@ public class MainPlayerController : MonoBehaviour {
                 Player.transform.rotation = newRot;
             }
 		}
+        else if(other.gameObject.tag == "OxygenTank")
+        {
+            OxygenController.Instance.AddOxygen(1f);
+            Destroy(other.gameObject);
+        }
 	}
+
+    void OnCollisionStay(Collision other)
+    {
+        print("here");
+        if(other.gameObject.tag == "Enemy")
+        {
+            OxygenController.Instance.LoseOxygen();
+        }
+    }
+
+    void PlayerDead()
+    {
+        if(OxygenController.Instance.CurrentOxygen <= 0)
+        {
+            //player is dead
+        }
+    }
 }

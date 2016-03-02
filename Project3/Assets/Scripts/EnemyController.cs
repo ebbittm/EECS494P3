@@ -33,17 +33,24 @@ public class EnemyController : MonoBehaviour {
 	}
 	
 	void Update () {
-        if(Sight.PlayerInView)
+        if (!Player1Controller.Instance.Dead)
         {
-            CurrentState = State.CHASE;
+            if (Sight.PlayerInView)
+            {
+                CurrentState = State.CHASE;
+            }
+            if (CurrentState == State.WANDER)
+            {
+                Wander();
+            }
+            else if (CurrentState == State.CHASE)
+            {
+                Chase();
+            }
         }
-        if (CurrentState == State.WANDER)
+        else
         {
-            Wander();
-        }
-        else if (CurrentState == State.CHASE)
-        {
-            Chase();
+            Stop();
         }
 	}
 
@@ -52,7 +59,15 @@ public class EnemyController : MonoBehaviour {
         Nav.speed = WanderSpeed;
         if (Nav.remainingDistance < Nav.stoppingDistance)
         {
-            PatrolPointIndex = Random.Range(0, PatrolPoints.Length);
+            if(PatrolPointIndex == PatrolPoints.Length - 1)
+            {
+                PatrolPointIndex = 0;
+            }
+            else
+            {
+                PatrolPointIndex++;
+            }
+            //PatrolPointIndex = Random.Range(0, PatrolPoints.Length);
         }
         Nav.destination = PatrolPoints[PatrolPointIndex].transform.position;
 
@@ -84,5 +99,11 @@ public class EnemyController : MonoBehaviour {
                 Nav.destination = Player.transform.position;
             }
         }
+    }
+
+    void Stop()
+    {
+        Nav.speed = 0;
+        Nav.Stop();
     }
 }

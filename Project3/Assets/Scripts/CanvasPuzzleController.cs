@@ -2,16 +2,18 @@
 using System.Collections;
 
 public class CanvasPuzzleController : MonoBehaviour {
+    public static CanvasPuzzleController Instance;
 
     public GameObject HUD;
     public GameObject Puzzle;
     public GameObject OxygenTank;
 
-    private bool solved;
+    public bool solved;
 
 
 	// Use this for initialization
 	void Start () {
+        Instance = this;
         solved = false;
 	}
 	

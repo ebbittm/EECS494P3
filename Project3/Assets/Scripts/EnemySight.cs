@@ -28,7 +28,7 @@ public class EnemySight : MonoBehaviour {
             {
                 if(CheckIfVisible())
                 {
-                    print("can see player");
+                   /// print("can see player");
                     PlayerInView = true;
                     FieldOfView = 180f;
                     LastSeen = Player.transform.position;

@@ -19435,7 +19435,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 403720, guid: be47072fb3855b0499af6205b2d686af, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 132
+      value: 132.87
       objectReference: {fileID: 0}
     - target: {fileID: 403720, guid: be47072fb3855b0499af6205b2d686af, type: 2}
       propertyPath: m_LocalPosition.y
@@ -53584,7 +53584,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_RootOrder: 16
 --- !u!114 &1690608445
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -58113,6 +58113,7 @@ MonoBehaviour:
   Timer: 0
   TimerMax: 2
   CloseToPuzzle: 0
+  ArrowPuzzle: 0
   Compass: {fileID: 1047747081}
 --- !u!143 &1835240402
 CharacterController:

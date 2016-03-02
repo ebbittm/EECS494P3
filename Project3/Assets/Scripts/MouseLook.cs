@@ -37,6 +37,18 @@ public class MouseLook : MonoBehaviour {
             m_CharacterTargetRot = Portal;
             character.localRotation = Portal;
         }
+        else if(Player1Controller.Instance.Dead)
+        {
+            if (m_CharacterTargetRot.eulerAngles.z < 90)
+            {
+                m_CharacterTargetRot *= Quaternion.Euler(0f, 0f, 30f * Time.deltaTime);
+                character.localRotation = m_CharacterTargetRot;
+            }
+            else
+            {
+                //Destroy(Camera.main);
+            }
+        }
         else {
             m_CharacterTargetRot *= Quaternion.Euler(0f, yRot, 0f);
             m_CameraTargetRot *= Quaternion.Euler(-xRot, 0f, 0f);

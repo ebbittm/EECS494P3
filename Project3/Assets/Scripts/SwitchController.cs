@@ -5,8 +5,9 @@ public class SwitchController : MonoBehaviour {
 
     public GameObject Door;
 
-    public GameObject OffLight;
-    public GameObject OnLight;
+    public GameObject LightPuzzleLight;
+    public GameObject CanvasPuzzleLight;
+    public GameObject RotorPuzzleLight;
 
     public Material OffRed;
     public Material OffGreen;
@@ -14,24 +15,43 @@ public class SwitchController : MonoBehaviour {
     public Material OnGreen;
 
     public GameObject LightPuzzle;
+    public GameObject CanvasPuzzle;
+    public GameObject RotorPuzzle;
 
     public bool open = false;
 
+    private bool Light = false;
+    private bool Canvas = false;
+    private bool Rotor = false;
+
+    void Awake()
+    {
+        LightPuzzleLight.GetComponent<Renderer>().material = OffRed;
+        CanvasPuzzleLight.GetComponent<Renderer>().material = OffRed;
+        RotorPuzzleLight.GetComponent<Renderer>().material = OffRed;
+    }
+
     void Update()
     {
-        if (LightPuzzle.GetComponent<LightPuzzle>().solved && !open)
+        if(LightPuzzle.GetComponent<LightPuzzle>().solved)
+        {
+            Light = true;
+            LightPuzzleLight.GetComponent<Renderer>().material = OnGreen;
+        }
+        if (CanvasPuzzle.GetComponent<CanvasPuzzleController>().solved)
+        {
+            Canvas = true;
+            CanvasPuzzleLight.GetComponent<Renderer>().material = OnGreen;
+        }
+        if (RotorPuzzle.GetComponent<LightPuzzle>().solved)
+        {
+            Rotor = true;
+            RotorPuzzleLight.GetComponent<Renderer>().material = OnGreen;
+        }
+
+        if(Light && Canvas && Rotor)
         {
             open = true;
-        }
-        if(open)
-        {
-            OffLight.GetComponent<Renderer>().material = OnRed;
-            OnLight.GetComponent<Renderer>().material = OnGreen;
-        }
-        else
-        {
-            OffLight.GetComponent<Renderer>().material = OffRed;
-            OnLight.GetComponent<Renderer>().material = OffGreen;
         }
     }
 
