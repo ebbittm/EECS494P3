@@ -6,7 +6,7 @@ public class EnemyController : MonoBehaviour {
     public NavMeshAgent Nav;
     public float CurrentSpeed;
 
-    private State CurrentState;
+    public State CurrentState;
     private EnemySight Sight;
 
     //wandering variables
@@ -78,6 +78,10 @@ public class EnemyController : MonoBehaviour {
                         CurrentState = State.WANDER;
                     }
                 }
+            }
+            else
+            {
+                Nav.destination = Player.transform.position;
             }
         }
     }

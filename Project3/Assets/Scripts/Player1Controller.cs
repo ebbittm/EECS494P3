@@ -20,6 +20,7 @@ public class Player1Controller : MonoBehaviour {
     public float TimerMax = 10.0f;
 
     public bool CloseToPuzzle;
+    public bool ArrowPuzzle;
 
     public GameObject Compass;
     
@@ -106,34 +107,37 @@ public class Player1Controller : MonoBehaviour {
 
     void GetAuxiliaryActionInput()
     {
-        if (Input.GetButtonDown("Jump"))
+        if (!ArrowPuzzle)
         {
-            Jump();
-        }
-        if (Input.GetButtonDown("Crouch"))
-        {
-            ToggleCrouch();
-        }
-		if(Input.GetButtonDown("Interact"))
-        {
-            Interaction();
-        }
-		/*
-		if (Input.GetKeyDown (KeyCode.E)) {
-			Interaction ();
-		}
-		*/
-        if(Input.GetKeyDown(KeyCode.C))
-        {
-            ToggleCompass();
-        }
-        if (Input.GetAxis("Run") > 0)
-        {
-            Run();
-        }
-        else
-        {
-            Walk();
+            if (Input.GetButtonDown("Jump"))
+            {
+                Jump();
+            }
+            if (Input.GetButtonDown("Crouch"))
+            {
+                ToggleCrouch();
+            }
+            if (Input.GetButtonDown("Interact"))
+            {
+                Interaction();
+            }
+            /*
+            if (Input.GetKeyDown (KeyCode.E)) {
+                Interaction ();
+            }
+            */
+            if (Input.GetKeyDown(KeyCode.C))
+            {
+                ToggleCompass();
+            }
+            if (Input.GetAxis("Run") > 0)
+            {
+                Run();
+            }
+            else
+            {
+                Walk();
+            }
         }
     }
 

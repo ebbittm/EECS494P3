@@ -4,19 +4,28 @@ using System.Collections;
 public class OxygenController : MonoBehaviour {
 
     public float MaxOxygen = 100f;
-    public float CurrentOxygen = 100f;
+    public float CurrentOxygen = 1f;
     public float OxygenLoss = 0.5f;
     public float OxygenTankLength;
+    public float LastTime = 0f;
 
     public Texture2D OxygenTank;
     public Texture2D OxygenLeft;
 
+    public GUIBarScript g;
+
 	void Awake () {
         OxygenTankLength = Screen.width / 2;
+        //g = new GUIBarScript();
 	}
 	
 	void Update () {
-        LoseOxygen();
+        if (Time.time - LastTime > 5.0)
+        {
+            LastTime = Time.time;
+            CurrentOxygen -= .01f;
+            g.SetNewValue(CurrentOxygen);
+        }
     }
 
     public void AddOxygen(float amount)
@@ -34,7 +43,7 @@ public class OxygenController : MonoBehaviour {
         CurrentOxygen -= OxygenLoss;
     }
 
-    void OnGUI()
+    /*void OnGUI()
     {
         GUI.BeginGroup(new Rect(0, 0, OxygenTankLength, 32));
         GUI.Box(new Rect(0, 0, OxygenTankLength, 32), OxygenTank);
@@ -44,4 +53,5 @@ public class OxygenController : MonoBehaviour {
         GUI.EndGroup();
         GUI.EndGroup();
     }
+    */
 }
