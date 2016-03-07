@@ -104,7 +104,7 @@ public class MapManager : MonoBehaviour {
                 //print("Line " + y.ToString() + ": \"" + line + "\"");
                 if (line != null) {
                     for (int x = 0; x < line.Length; x++) { // for each character
-                        Vector3 pos = new Vector3(x, 0f, y); // create a position vector based on its position in the text file
+                        Vector3 pos = new Vector3(y, 0f, x); // create a position vector based on its position in the text file (reversed due to weirdness)
                         if (line[x] == '.') { // if this is part of a larger prefab
                             ; // do nothing
                         }
@@ -115,7 +115,7 @@ public class MapManager : MonoBehaviour {
                 }
             }
 
-            PlaceFloor(width, height); // place flooring underneath the map
+            PlaceFloor(height, width); // place flooring underneath the map (reversed due to weirdness)
             print("Map loaded!");
         }
         catch (Exception e) { // catch exceptions

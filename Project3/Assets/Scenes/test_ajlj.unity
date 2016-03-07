@@ -506,10 +506,6 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 11418488, guid: 933c3508a82929749ab064c81101d7ff, type: 2}
-      propertyPath: tileKey.Array.size
-      value: 8
-      objectReference: {fileID: 0}
     - target: {fileID: 489604, guid: 933c3508a82929749ab064c81101d7ff, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -543,21 +539,9 @@ Prefab:
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 11418488, guid: 933c3508a82929749ab064c81101d7ff, type: 2}
-      propertyPath: tileKey.Array.data[8].character
-      value: 115
-      objectReference: {fileID: 0}
-    - target: {fileID: 11418488, guid: 933c3508a82929749ab064c81101d7ff, type: 2}
-      propertyPath: tileKey.Array.data[8].prefab
+      propertyPath: mapFile
       value: 
-      objectReference: {fileID: 157772, guid: 499a7baeedb50bb439f3c1f56e35e960, type: 2}
-    - target: {fileID: 11418488, guid: 933c3508a82929749ab064c81101d7ff, type: 2}
-      propertyPath: tileKey.Array.data[6].prefab
-      value: 
-      objectReference: {fileID: 146332, guid: 0349cd060722e6347a624d8886ae2360, type: 2}
-    - target: {fileID: 11418488, guid: 933c3508a82929749ab064c81101d7ff, type: 2}
-      propertyPath: tileKey.Array.data[5].prefab
-      value: 
-      objectReference: {fileID: 126728, guid: 1c218c73f81eae943b10a881e85fa635, type: 2}
+      objectReference: {fileID: 4900000, guid: d9ebae361232d9e479554b3e9abcea2f, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 933c3508a82929749ab064c81101d7ff, type: 2}
   m_IsPrefabParent: 0
