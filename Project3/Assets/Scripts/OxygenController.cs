@@ -33,7 +33,8 @@ public class OxygenController : MonoBehaviour {
 
     public void AddOxygen(float amount)
     {
-        CurrentOxygen = amount;
+        CurrentOxygen += amount;
+        if (CurrentOxygen > 1f) CurrentOxygen = 1f;
         g.SetNewValue(CurrentOxygen);
         //OxygenTankLength = (Screen.width / 2) * (CurrentOxygen / MaxOxygen);
     }

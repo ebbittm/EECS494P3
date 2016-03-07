@@ -19,6 +19,7 @@ TagManager:
   - PatrolPoint
   - OxygenTank
   - Obstacle
+  - OxygenSource
   layers:
   - Default
   - TransparentFX

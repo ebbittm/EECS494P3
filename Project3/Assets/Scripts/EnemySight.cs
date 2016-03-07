@@ -24,8 +24,8 @@ public class EnemySight : MonoBehaviour {
             PlayerInRadius = true;
             Vector3 direction = other.transform.position - transform.position;
             float angle = Vector3.Angle(direction, transform.forward);
-            if(angle < FieldOfView * 0.5f)
-            {
+            //if(angle < FieldOfView * 0.5f)
+            //{
                 if(CheckIfVisible())
                 {
                    /// print("can see player");
@@ -33,7 +33,7 @@ public class EnemySight : MonoBehaviour {
                     FieldOfView = 180f;
                     LastSeen = Player.transform.position;
                 }
-            }
+            //}
         }
 	}
 

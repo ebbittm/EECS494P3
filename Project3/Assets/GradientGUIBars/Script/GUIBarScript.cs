@@ -3,7 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 
 public class GUIBarScript : MonoBehaviour {
-	//Declare variables
+    //Declare variables
+    public static GUIBarScript Instance;
 
 	//for the CurrentValue, and the Value it will be after the update
 	private float CurrentValue;
@@ -41,6 +42,11 @@ public class GUIBarScript : MonoBehaviour {
 	private GradientColorKey[] gck;
 	private GradientAlphaKey[] gak;
 	private Color[] MaskPixels; 
+
+    void Awake()
+    {
+        Instance = this;
+    }
 	
 	//Stanard OnGUI Method
 	void OnGUI()
