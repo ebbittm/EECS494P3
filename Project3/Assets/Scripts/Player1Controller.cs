@@ -196,6 +196,9 @@ public class Player1Controller : MonoBehaviour {
 				if (hitInfo.collider.gameObject.tag == "IntroLever") {
 					hitInfo.collider.gameObject.GetComponent<LeverController> ().ToggleLever ();
 				}
+				if (hitInfo.collider.gameObject.tag == "Rotor") {
+					hitInfo.collider.gameObject.GetComponent<Rotor> ().Increment ();
+				}
             }
         }
     }

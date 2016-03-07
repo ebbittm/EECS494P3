@@ -7,4 +7,9 @@ public class Rotor : MonoBehaviour {
 	public Rotor(int n){
 		num = n;
 	}
+
+	public void Increment(){
+		print ("Incrementing");
+		num = (num + 1) % 10;
+	}
 }
