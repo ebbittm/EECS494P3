@@ -22,15 +22,14 @@ public class BarrierController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (isOpen) {
-			return;
-		}
-
 		//check to see if any new puzzles have been solved
-		foreach (Puzzle p in puzzles) {
-			if (p.solved) {
-				lights [light_index].gameObject.GetComponent<Renderer> ().material = onMat;
-				lightsInfo [light_index] = true;
+		for (int i = 0; i < puzzles.Length; ++i) {
+			if (puzzles [i].solved) {
+				lights [i].gameObject.GetComponent<Renderer> ().material = onMat;
+				lightsInfo [i] = true;
+			} else {
+				lights [i].gameObject.GetComponent<Renderer> ().material = offMat;
+				lightsInfo [i] = false;
 			}
 		}
 
