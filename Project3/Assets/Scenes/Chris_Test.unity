@@ -344,6 +344,52 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e30597d0deb9b417fac81d42ec64ad72, type: 2}
   m_IsPrefabParent: 0
+--- !u!1001 &339937121
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 477746, guid: f23386cbf0620427aa6e620110a71bbc, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 477746, guid: f23386cbf0620427aa6e620110a71bbc, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 3.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 477746, guid: f23386cbf0620427aa6e620110a71bbc, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 72
+      objectReference: {fileID: 0}
+    - target: {fileID: 477746, guid: f23386cbf0620427aa6e620110a71bbc, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 477746, guid: f23386cbf0620427aa6e620110a71bbc, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 477746, guid: f23386cbf0620427aa6e620110a71bbc, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 477746, guid: f23386cbf0620427aa6e620110a71bbc, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071067
+      objectReference: {fileID: 0}
+    - target: {fileID: 477746, guid: f23386cbf0620427aa6e620110a71bbc, type: 2}
+      propertyPath: m_RootOrder
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 111256, guid: f23386cbf0620427aa6e620110a71bbc, type: 2}
+      propertyPath: m_Name
+      value: Barrier
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: f23386cbf0620427aa6e620110a71bbc, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &342251879
 GameObject:
   m_ObjectHideFlags: 0

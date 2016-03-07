@@ -40,7 +40,7 @@ public class BarrierController : MonoBehaviour {
 		}
 	}
 
-	override void OnTriggerEnter(){
+	void OnTriggerEnter(Collider other){
 		if (isOpen) {
 			BarrierInterpolator.S.ready = true;
 		}
