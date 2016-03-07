@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class RotorPuzzleController : MonoBehaviour {
+public class RotorPuzzleController : Puzzle {
 
 	public TextMesh[] ui_rotors;
 

@@ -1,13 +1,12 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class RotorPuzzle : MonoBehaviour {
+public class RotorPuzzle : Puzzle {
 
 	public static RotorPuzzle S;
 
 	public Rotor[] rotors;
 	public int currRotor = 0;
-	public bool solved = false;
 
 	private string solution = "75309";
 

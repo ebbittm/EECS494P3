@@ -1,14 +1,12 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class CanvasPuzzleController : MonoBehaviour {
+public class CanvasPuzzleController : Puzzle {
     public static CanvasPuzzleController Instance;
 
     public GameObject HUD;
     public GameObject Puzzle;
     public GameObject OxygenTank;
-
-    public bool solved;
 
 
 	// Use this for initialization
