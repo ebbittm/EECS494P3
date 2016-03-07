@@ -56,7 +56,7 @@ MonoBehaviour:
   - character: 117
     prefab: {fileID: 146332, guid: 0349cd060722e6347a624d8886ae2360, type: 2}
   - character: 111
-    prefab: {fileID: 111642, guid: c171ef0895858e64a8d7bd77a3ac4b4b, type: 2}
+    prefab: {fileID: 138716, guid: f01cb75b7eee2a1438f981277fe511dc, type: 2}
   floorPrefab: {fileID: 187854, guid: 1c164ec313bf7d546aee8701de7f7b3d, type: 2}
 --- !u!1001 &100100000
 Prefab:
