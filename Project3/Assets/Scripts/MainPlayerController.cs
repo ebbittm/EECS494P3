@@ -20,6 +20,7 @@ public class MainPlayerController : MonoBehaviour {
     public float JumpSpeed = 10.0f;
     public float RunSpeed = 10.0f;
     public float MoveSpeed = 5.0f;
+    public float OxygenRegen = .001f;
 
     public float SlideSpeed = 10.0f;
     private Vector3 SlideDirection;
@@ -156,12 +157,15 @@ public class MainPlayerController : MonoBehaviour {
                 Player.transform.rotation = newRot;
             }
 		}
-        else if(other.gameObject.tag == "OxygenTank")
-        {
-            OxygenController.Instance.AddOxygen(1f);
-            Destroy(other.gameObject);
-        }
 	}
+
+    void OnTriggerStay(Collider other)
+    {
+        if (other.gameObject.tag == "OxygenSource")
+        {
+            OxygenController.Instance.AddOxygen(OxygenRegen);
+        }
+    }
 
     void OnCollisionStay(Collision other)
     {
@@ -169,6 +173,7 @@ public class MainPlayerController : MonoBehaviour {
         if(other.gameObject.tag == "Enemy")
         {
             OxygenController.Instance.LoseOxygen();
+            GUIBarScript.Instance.ForceUpdate();
         }
     }
 
