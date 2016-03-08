@@ -30618,16 +30618,6 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 11434624, guid: de46e3653a2d9bc4da6c052e1fdad21b, type: 2}
-      propertyPath: messageDisplayError
-      value: ERROR:\n\tDisplay malfunction detected\n\tOxygen display unavailable\n\tRemote
-        operator oxygen readout enabled
-      objectReference: {fileID: 0}
-    - target: {fileID: 11434624, guid: de46e3653a2d9bc4da6c052e1fdad21b, type: 2}
-      propertyPath: messageSuitError
-      value: ERROR:\n\tSuit malfunction detected\n\tUser control impossible\n\tRemote
-        control activated
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: de46e3653a2d9bc4da6c052e1fdad21b, type: 2}
   m_IsPrefabParent: 0

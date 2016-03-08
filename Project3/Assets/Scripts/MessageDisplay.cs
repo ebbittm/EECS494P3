@@ -3,7 +3,7 @@ using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
 
-public class Intro : MonoBehaviour {
+public class MessageDisplay : MonoBehaviour {
 
     public float characterDelay = 0.1f; // the delay between each character appearing on screen
     public float messageLife = 3f; // the amount of time the message stays on the screen after being completed
@@ -15,7 +15,7 @@ public class Intro : MonoBehaviour {
     public string messageDisplayError = "ERROR:\n\tDisplay malfunction detected\n\tOxygen display unavailable\n\tRemote operator oxygen readout enabled";
     public GameObject UITextPrefab;
 
-    public static Intro S; // singleton
+    public static MessageDisplay S; // singleton
 
     private Text UIElement; // the UIElement in the scene being manipulated
     private float borderOffset = 1.0f; // the offset used to position the text border
