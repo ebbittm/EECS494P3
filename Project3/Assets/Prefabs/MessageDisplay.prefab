@@ -33,6 +33,8 @@ MonoBehaviour:
   messageLife: 3
   cursorBlinkInterval: 0.5
   textBorderColor: {r: 0, g: 0, b: 0, a: 1}
+  displayTextBorder: 1
+  messageInterval: 0.5
   introText: ERROR:\n\tSuit malfunction\n\tUser control impossible\n\tRemote operator
     controls activated
   UITextPrefab: {fileID: 165814, guid: aa0f68e02af3bf247a1b4afa386be39f, type: 2}
@@ -48,7 +50,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 0, g: 1, b: 0, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:

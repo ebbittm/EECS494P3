@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using System.Collections.Generic;
 
 public class Intro : MonoBehaviour {
 
@@ -9,10 +10,11 @@ public class Intro : MonoBehaviour {
     public float cursorBlinkInterval = 0.8f; // the amount of time between cursor blinks
     public Color textBorderColor = new Color(0, 0, 0); // the color of the text's border
     public bool displayTextBorder = true; // whether or not to display the text border
+    public float messageInterval = 0.5f; // the delay between messages when multiple messages are queued
     public string introText = "ERROR: Suit malfunction.\n\tUser control impossible.\n\tRemote control activated.";
     public GameObject UITextPrefab;
 
-    private Text UIElement;
+    private Text UIElement; // the UIElement in the scene being manipulated
     private float borderOffset = 1.0f; // the offset used to position the text border
     private GameObject borderTextNW; // the duplicate GameObject used to give the text a border in the northwest direction
     private GameObject borderTextSE; // the duplicate GameObject used to give the text a border in the southeast direction
@@ -20,13 +22,13 @@ public class Intro : MonoBehaviour {
     private float blinkTime = 0f; // the time at which the cursor last blinked
     private bool cursorDisplay = true; // controls cursor display when blinking
     private float timeElapsed = 0f; // the time elapsed since the message began playing
+    private Queue<string> messageQueue = new Queue<string>(); // the queue of messages that will be played
 
 	// Use this for initialization
 	void Start () {
         this.UIElement = this.GetComponent<Text>();
         CreateTextBorder();
-        PlayMessage(this.introText);
-
+        messageQueue.Enqueue(introText);
 	}
 
     // kicks off a message across the screen using a "typing" effect
@@ -35,13 +37,15 @@ public class Intro : MonoBehaviour {
         messageText = messageText.Replace("\\n", "\n"); // newline
         messageText = messageText.Replace("\\t", "\t"); // tab
 
+        this.blinkTime = 0f; // reset blinkTime
         this.timeElapsed = 0f; // reset elapsedTime
         this.completedText = messageText; // establish completedMessage state
     }
 
     // marks a playing message as having completed and drops it
     void EndMessage() {
-        this.completedText = "";
+        this.completedText = ""; // reset the text
+        this.timeElapsed = 0f; // reset the time for the message queue
     }
 
     int min(int a, int b) {
@@ -127,5 +131,8 @@ public class Intro : MonoBehaviour {
             EndMessage();
         }
 
+        if (this.completedText == "" && this.timeElapsed > this.messageInterval && messageQueue.Count != 0) { // if there is no message currently being played and enough time has elapsed and the queue is not empty
+            PlayMessage(this.messageQueue.Dequeue()); // play the next message in the queue
+        }
 	}
 }
