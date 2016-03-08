@@ -15,7 +15,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &489604
 Transform:
   m_ObjectHideFlags: 1
@@ -39,7 +39,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f18fc80ea0428147b02894443265729, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mapFile: {fileID: 4900000, guid: cb90db8445d42b248910532467e4ac52, type: 3}
+  mapFile: {fileID: 4900000, guid: 01ffb107b1c494cf0946d0c23eb74e34, type: 3}
   tileKey:
   - character: 32
     prefab: {fileID: 0}
@@ -48,15 +48,19 @@ MonoBehaviour:
   - character: 80
     prefab: {fileID: 100390, guid: cf6c8fc21c0b9427e9afd945300b617c, type: 2}
   - character: 68
-    prefab: {fileID: 156216, guid: c4506d27a7ad64b88ad8628e5c39c300, type: 2}
+    prefab: {fileID: 111256, guid: f23386cbf0620427aa6e620110a71bbc, type: 2}
   - character: 76
     prefab: {fileID: 128640, guid: e30597d0deb9b417fac81d42ec64ad72, type: 2}
-  - character: 99
+  - character: 67
     prefab: {fileID: 126728, guid: 1c218c73f81eae943b10a881e85fa635, type: 2}
-  - character: 117
+  - character: 74
     prefab: {fileID: 146332, guid: 0349cd060722e6347a624d8886ae2360, type: 2}
-  - character: 111
+  - character: 79
     prefab: {fileID: 138716, guid: f01cb75b7eee2a1438f981277fe511dc, type: 2}
+  - character: 66
+    prefab: {fileID: 166166, guid: 4e4714e6f33d74053bb8f8656ad30245, type: 2}
+  - character: 82
+    prefab: {fileID: 100620, guid: 4e5cc3879e33f4ccc94125d5270655f5, type: 2}
   floorPrefab: {fileID: 187854, guid: 1c164ec313bf7d546aee8701de7f7b3d, type: 2}
 --- !u!1001 &100100000
 Prefab:
