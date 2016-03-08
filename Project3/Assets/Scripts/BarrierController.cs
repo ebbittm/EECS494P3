@@ -38,9 +38,9 @@ public class BarrierController : MonoBehaviour {
 			isOpen = true;
 		}
 	}
-
-	void OnTriggerEnter(Collider other){
-		if (isOpen) {
+		
+	void OnTriggerStay(Collider other){
+		if (isOpen && Input.GetButtonDown ("Interact")) {
 			BarrierInterpolator.S.ready = true;
 		}
 	}

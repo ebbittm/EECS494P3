@@ -63146,6 +63146,14 @@ Prefab:
       propertyPath: puzzles.Array.data[0]
       value: 
       objectReference: {fileID: 1570842285}
+    - target: {fileID: 6596302, guid: f23386cbf0620427aa6e620110a71bbc, type: 2}
+      propertyPath: m_Size.x
+      value: 3.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6596302, guid: f23386cbf0620427aa6e620110a71bbc, type: 2}
+      propertyPath: m_Size.z
+      value: 1.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f23386cbf0620427aa6e620110a71bbc, type: 2}
   m_IsPrefabParent: 0
@@ -83074,6 +83082,22 @@ Prefab:
       propertyPath: puzzles.Array.data[2]
       value: 
       objectReference: {fileID: 1846117196}
+    - target: {fileID: 6596302, guid: f23386cbf0620427aa6e620110a71bbc, type: 2}
+      propertyPath: m_Size.x
+      value: 1.11
+      objectReference: {fileID: 0}
+    - target: {fileID: 6596302, guid: f23386cbf0620427aa6e620110a71bbc, type: 2}
+      propertyPath: m_Center.x
+      value: -0.78
+      objectReference: {fileID: 0}
+    - target: {fileID: 6596302, guid: f23386cbf0620427aa6e620110a71bbc, type: 2}
+      propertyPath: m_Size.z
+      value: 1.49
+      objectReference: {fileID: 0}
+    - target: {fileID: 6596302, guid: f23386cbf0620427aa6e620110a71bbc, type: 2}
+      propertyPath: m_Center.z
+      value: 0.15
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f23386cbf0620427aa6e620110a71bbc, type: 2}
   m_IsPrefabParent: 0
