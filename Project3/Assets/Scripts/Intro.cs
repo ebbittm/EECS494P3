@@ -11,8 +11,11 @@ public class Intro : MonoBehaviour {
     public Color textBorderColor = new Color(0, 0, 0); // the color of the text's border
     public bool displayTextBorder = true; // whether or not to display the text border
     public float messageInterval = 0.5f; // the delay between messages when multiple messages are queued
-    public string introText = "ERROR: Suit malfunction.\n\tUser control impossible.\n\tRemote control activated.";
+    public string messageSuitError = "ERROR:\n\tSuit malfunction detected\n\tUser control impossible\n\tRemote control activated";
+    public string messageDisplayError = "ERROR:\n\tDisplay malfunction detected\n\tOxygen display unavailable\n\tRemote operator oxygen readout enabled";
     public GameObject UITextPrefab;
+
+    public static Intro S; // singleton
 
     private Text UIElement; // the UIElement in the scene being manipulated
     private float borderOffset = 1.0f; // the offset used to position the text border
@@ -26,10 +29,26 @@ public class Intro : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+
+        // establish the MessageDisplay singleton
+        if (S == null) {
+            S = this;
+        }
+        else {
+            return;
+        }
         this.UIElement = this.GetComponent<Text>();
         CreateTextBorder();
-        messageQueue.Enqueue(introText);
+
+        // queue introduction messages
+        this.QueueMessage(messageSuitError);
+        this.QueueMessage(messageDisplayError);
 	}
+    
+    // queues a message to be played
+    public void QueueMessage(string messageText) {
+        this.messageQueue.Enqueue(messageText);
+    }
 
     // kicks off a message across the screen using a "typing" effect
     void PlayMessage(string messageText) {
