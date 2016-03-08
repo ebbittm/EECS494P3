@@ -7,15 +7,9 @@ public class LeverIntroPuzzle : Puzzle {
 	public GameObject lever;
 	private bool leverState = false;
 
-	void Start(){
+	void Awake(){
 		S = this;
-	}
-
-	void Update(){
-		if (Input.GetKeyDown (KeyCode.Z)) {
-			HandleInput ();
-		}
-	}
+	}g
 
 	public void HandleInput(){
 		if (leverState) {
