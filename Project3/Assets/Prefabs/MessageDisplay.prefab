@@ -35,8 +35,8 @@ MonoBehaviour:
   textBorderColor: {r: 0, g: 0, b: 0, a: 1}
   displayTextBorder: 1
   messageInterval: 0.5
-  messageSuitError: ERROR:\n\tSuit malfunction detected\n\tUser control impossible\n\tRemote
-    control activated
+  messageSuitError: ERROR:\n\tSuit malfunction detected\n\tUser control impossible\n\tControl
+    transferred to remote operator
   messageDisplayError: ERROR:\n\tDisplay malfunction detected\n\tOxygen display unavailable\n\tRemote
     operator oxygen readout enabled
   UITextPrefab: {fileID: 165814, guid: aa0f68e02af3bf247a1b4afa386be39f, type: 2}

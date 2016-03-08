@@ -11,7 +11,7 @@ public class MessageDisplay : MonoBehaviour {
     public Color textBorderColor = new Color(0, 0, 0); // the color of the text's border
     public bool displayTextBorder = true; // whether or not to display the text border
     public float messageInterval = 0.5f; // the delay between messages when multiple messages are queued
-    public string messageSuitError = "ERROR:\n\tSuit malfunction detected\n\tUser control impossible\n\tRemote control activated";
+    public string messageSuitError = "ERROR:\n\tSuit malfunction detected\n\tUser control impossible\n\tControl transferred to remote operator";
     public string messageDisplayError = "ERROR:\n\tDisplay malfunction detected\n\tOxygen display unavailable\n\tRemote operator oxygen readout enabled";
     public GameObject UITextPrefab;
 
