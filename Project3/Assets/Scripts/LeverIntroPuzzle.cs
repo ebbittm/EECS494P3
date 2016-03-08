@@ -9,7 +9,7 @@ public class LeverIntroPuzzle : Puzzle {
 
 	void Awake(){
 		S = this;
-	}g
+	}
 
 	public void HandleInput(){
 		if (leverState) {
