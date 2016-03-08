@@ -6186,6 +6186,10 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 99542878}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &101098188 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 144412, guid: ca309bbc9e9e748a9a1cdb608dd8cb9d, type: 2}
+  m_PrefabInternal: {fileID: 1570842284}
 --- !u!1 &103087191
 GameObject:
   m_ObjectHideFlags: 0
@@ -52289,8 +52293,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5488a8994f549e84cb2a049bc9df0e0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LightPuzzle: {fileID: 0}
-  LeverIntroPuzzle: {fileID: 0}
+  LightPuzzle: {fileID: 128640, guid: e30597d0deb9b417fac81d42ec64ad72, type: 2}
+  LeverIntroPuzzle: {fileID: 101098188}
 --- !u!1 &877347517
 GameObject:
   m_ObjectHideFlags: 0
