@@ -19,7 +19,6 @@ public class MapManager : MonoBehaviour {
 
     // these fields are for faster access to cacheable data
     private Dictionary<char, tile> map = new Dictionary<char, tile>();
-    private float floorHeight;
 
 	// Use this for initialization
 	void Start () {
@@ -27,8 +26,6 @@ public class MapManager : MonoBehaviour {
         foreach (tile t in tileKey) {
             this.map[t.character] = t;
         }
-
-        this.floorHeight = floorPrefab.GetComponent<Renderer>().bounds.size.y; // cache the height of the floor prefab
 
         LoadMapFile(this.mapFile); // load the level into the scene
 	}

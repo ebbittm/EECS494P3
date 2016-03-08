@@ -10,13 +10,32 @@ GameObject:
   - 224: {fileID: 22411862}
   - 222: {fileID: 22219066}
   - 114: {fileID: 11491156}
+  - 114: {fileID: 11434624}
   m_Layer: 5
-  m_Name: UIText
+  m_Name: MessageDisplay
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &11434624
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 165814}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f23fb2c469165834c8f3b11a9eca4f20, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  characterDelay: 0.1
+  messageLife: 3
+  cursorBlinkInterval: 0.5
+  textBorderColor: {r: 0, g: 0, b: 0, a: 1}
+  introText: ERROR:\n\tSuit malfunction\n\tUser control impossible\n\tRemote operator
+    controls activated
+  UITextPrefab: {fileID: 165814, guid: aa0f68e02af3bf247a1b4afa386be39f, type: 2}
 --- !u!114 &11491156
 MonoBehaviour:
   m_ObjectHideFlags: 1
