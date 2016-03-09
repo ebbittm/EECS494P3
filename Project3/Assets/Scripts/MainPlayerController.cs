@@ -27,6 +27,7 @@ public class MainPlayerController : MonoBehaviour {
 
     public State CurrentState = State.STAND;
 
+    public GameObject Ship;
 
     void Awake () {
         Instance = this;
@@ -162,6 +163,10 @@ public class MainPlayerController : MonoBehaviour {
             Player1Controller.Instance.Win = true;
             Gravity = 0f;
             Destroy(GameObject.Find("UpperBounds").gameObject);
+        }
+        else if(other.gameObject == Ship)
+        {
+            //print to the player the game is over, WIN!
         }
 	}
 

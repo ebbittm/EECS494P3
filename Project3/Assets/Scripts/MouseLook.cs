@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class MouseLook : MonoBehaviour {
     public static MouseLook Instance;
@@ -47,6 +48,7 @@ public class MouseLook : MonoBehaviour {
             else
             {
                 //Destroy(Camera.main);
+                SceneManager.LoadScene("__StartScene");
             }
         }
         else {

@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 using System.Collections;
 
 public class IntroController : MonoBehaviour {
@@ -33,7 +34,7 @@ public class IntroController : MonoBehaviour {
         }
         if(other.gameObject == Crash)
         {
-            //play another scene
+            SceneManager.LoadScene("__IntroScene");
         }
     }
 }

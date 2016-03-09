@@ -34283,9 +34283,17 @@ Prefab:
       propertyPath: m_TagString
       value: Beacon
       objectReference: {fileID: 0}
+    - target: {fileID: 13685054, guid: a9f200d082efc44aaac39ceb30d1b037, type: 2}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a9f200d082efc44aaac39ceb30d1b037, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &556327981 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 135824, guid: a9f200d082efc44aaac39ceb30d1b037, type: 2}
+  m_PrefabInternal: {fileID: 556327980}
 --- !u!1 &559899406
 GameObject:
   m_ObjectHideFlags: 0
@@ -128603,6 +128611,7 @@ MonoBehaviour:
   OxygenRegen: 0.001
   SlideSpeed: 20
   CurrentState: 0
+  Ship: {fileID: 556327981}
 --- !u!23 &2140807812
 MeshRenderer:
   m_ObjectHideFlags: 0
