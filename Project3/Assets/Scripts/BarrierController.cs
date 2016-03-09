@@ -9,11 +9,16 @@ public class BarrierController : MonoBehaviour {
 	public Material offMat;
 	public Material onMat;
 
+	public GameObject Door;
+
 	private int light_index = 0;
 	private bool isOpen = false;
 
+	private BarrierInterpolator BI;
+
 	// Use this for initialization
 	void Start () {
+		BI = new BarrierInterpolator ();
 		lightsInfo = new BitArray (lights.Length, false);
 		foreach (GameObject light in lights) {
 			light.gameObject.GetComponent<Renderer> ().material = offMat;
@@ -33,16 +38,26 @@ public class BarrierController : MonoBehaviour {
 			}
 		}
 
-		//allow door to be opened if final light is on
-		if (lightsInfo [lightsInfo.Length - 1]) {
+		if (AllLightsOn ()) {
 			isOpen = true;
 		}
 	}
 
+	bool AllLightsOn(){
+		for (int i = 0; i < lightsInfo.Length; ++i) {
+			if (!lightsInfo [i]) {
+				return false;
+			}
+		}
+		return true;
+	}
+
 	//Door opens automatically when player is close
 	void OnTriggerEnter(Collider col){
+		print ("Trying to open door");
+		print (isOpen);
 		if (isOpen) {
-			BarrierInterpolator.S.ready = true;
+			Door.GetComponent<BarrierInterpolator>().ready = true;
 		}
 	}
 

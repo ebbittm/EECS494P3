@@ -3,7 +3,7 @@ using System.Collections;
 
 public class BarrierInterpolator : MonoBehaviour {
 
-	public static BarrierInterpolator S;
+	//public static BarrierInterpolator S;
 
 	private float u;
 	private Vector3 p0, p1;
@@ -11,7 +11,7 @@ public class BarrierInterpolator : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		S = this;
+		//S = this;
 		p0 = transform.position;
 		p1 = new Vector3 (p0.x, -4, p0.z);
 	}
