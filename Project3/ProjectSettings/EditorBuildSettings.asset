@@ -13,3 +13,5 @@ EditorBuildSettings:
     path: Assets/Scenes/__IntroScene.unity
   - enabled: 1
     path: Assets/Scenes/__OpeningScene.unity
+  - enabled: 1
+    path: Assets/Scenes/__WinScene.unity

@@ -47,7 +47,7 @@ public class MessageDisplay : MonoBehaviour {
         Player1Controller.Instance.FreezeMovement(totalMessageLength);
         // queue introduction messages
         this.QueueMessage(messageSuitError);
-        //this.QueueMessage(messageDisplayError);
+        this.QueueMessage(messageDisplayError);
 		this.QueueMessage(messageFinalError);
 		//this.QueueMessage(messageFinalError);
 	}
