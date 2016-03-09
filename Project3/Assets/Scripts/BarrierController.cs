@@ -38,11 +38,21 @@ public class BarrierController : MonoBehaviour {
 			isOpen = true;
 		}
 	}
-		
-	void OnTriggerStay(Collider other){
+
+	//Door opens automatically when player is close
+	void OnTriggerEnter(Collider col){
+		if (isOpen) {
+			BarrierInterpolator.S.ready = true;
+		}
+	}
+
+	/*
+	//uses interact button to open the door
+	void OnTriggerStay(Collider col){
 		if (isOpen && Input.GetButtonDown ("Interact")) {
 			BarrierInterpolator.S.ready = true;
 		}
 	}
+	*/
 
 }
