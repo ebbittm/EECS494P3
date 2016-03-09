@@ -193,7 +193,12 @@ public class Player1Controller : MonoBehaviour {
                 {
                     hitInfo.collider.gameObject.GetComponent<LeverController>().ToggleSwitch();
                 }
-                
+				if (hitInfo.collider.gameObject.tag == "IntroLever") {
+					hitInfo.collider.gameObject.GetComponent<LeverController> ().ToggleLever ();
+				}
+				if (hitInfo.collider.gameObject.tag == "Rotor") {
+					hitInfo.collider.gameObject.GetComponent<Rotor> ().Increment ();
+				}
             }
         }
     }
@@ -216,6 +221,7 @@ public class Player1Controller : MonoBehaviour {
 
     void PlayerDead()
     {
+		
         if (OxygenController.Instance.CurrentOxygen <= 0)
         {
             //player is dead
@@ -223,6 +229,8 @@ public class Player1Controller : MonoBehaviour {
             Compass.SetActive(false);
 
         }
+
+
     }
 
 }

@@ -128,6 +128,25 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &176038
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 457478}
+  - 20: {fileID: 2046024}
+  - 124: {fileID: 12445160}
+  - 92: {fileID: 9207636}
+  - 81: {fileID: 8154106}
+  m_Layer: 0
+  m_Name: Camera
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &178104
 GameObject:
   m_ObjectHideFlags: 1
@@ -201,7 +220,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 174118}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.493, z: 0.19}
+  m_LocalPosition: {x: 0, y: 0.217, z: 0.19}
   m_LocalScale: {x: 1, y: 0.2, z: 1}
   m_Children: []
   m_Father: {fileID: 449266}
@@ -225,15 +244,28 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 157772}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.09, y: 7.5, z: 0}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: -0.00000016292068}
+  m_LocalPosition: {x: 210, y: 2.5, z: 287}
   m_LocalScale: {x: 1, y: 5, z: 1}
   m_Children:
   - {fileID: 497926}
   - {fileID: 434978}
   - {fileID: 462034}
+  - {fileID: 457478}
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!4 &457478
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 176038}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0, y: 0, z: 0.65}
+  m_LocalScale: {x: 1, y: 0.2, z: 1}
+  m_Children: []
+  m_Father: {fileID: 449266}
+  m_RootOrder: 3
 --- !u!4 &462034
 Transform:
   m_ObjectHideFlags: 1
@@ -306,11 +338,45 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 104552}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.413, z: -0.02}
+  m_LocalPosition: {x: 0, y: 0.442, z: 0.5}
   m_LocalScale: {x: 1, y: 0.2, z: 1}
   m_Children: []
   m_Father: {fileID: 449266}
   m_RootOrder: 0
+--- !u!20 &2046024
+Camera:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 176038}
+  m_Enabled: 1
+  serializedVersion: 2
+  m_ClearFlags: 1
+  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0.019607844}
+  m_NormalizedViewPortRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
+  near clip plane: 0.01
+  far clip plane: 1000
+  field of view: 60
+  orthographic: 0
+  orthographic size: 5
+  m_Depth: 0
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RenderingPath: -1
+  m_TargetTexture: {fileID: 0}
+  m_TargetDisplay: 1
+  m_TargetEye: 3
+  m_HDR: 0
+  m_OcclusionCulling: 1
+  m_StereoConvergence: 10
+  m_StereoSeparation: 0.022
+  m_StereoMirrorMode: 0
 --- !u!20 &2050418
 Camera:
   m_ObjectHideFlags: 1
@@ -327,7 +393,7 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 0.3
+  near clip plane: 0.01
   far clip plane: 1000
   field of view: 60
   orthographic: 0
@@ -657,12 +723,26 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!81 &8154106
+AudioListener:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 176038}
+  m_Enabled: 0
 --- !u!81 &8183108
 AudioListener:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 104552}
+  m_Enabled: 1
+--- !u!92 &9207636
+Behaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 176038}
   m_Enabled: 1
 --- !u!92 &9267016
 Behaviour:
@@ -692,6 +772,8 @@ MonoBehaviour:
   Timer: 0
   TimerMax: 2
   CloseToPuzzle: 0
+  ArrowPuzzle: 0
+  Dead: 0
   Compass: {fileID: 120696}
 --- !u!114 &11486954
 MonoBehaviour:
@@ -711,12 +793,13 @@ MonoBehaviour:
   TerminalVelocity: 20
   VerticalVelocity: 0
   RotationSpeed: 10
-  WalkSpeed: 12
-  CrouchSpeed: 3
-  JumpSpeed: 10
-  RunSpeed: 10
+  WalkSpeed: 13
+  CrouchSpeed: 6
+  JumpSpeed: 12.5
+  RunSpeed: 20
   MoveSpeed: 5
-  SlideSpeed: 10
+  OxygenRegen: 0.001
+  SlideSpeed: 20
   CurrentState: 0
 --- !u!114 &11490204
 MonoBehaviour:
@@ -731,6 +814,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Needle: {fileID: 178104}
   Target: {fileID: 166496, guid: ba41f80d93026ae4685e9edb023bda7c, type: 2}
+--- !u!124 &12445160
+Behaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 176038}
+  m_Enabled: 1
 --- !u!124 &12459810
 Behaviour:
   m_ObjectHideFlags: 1

@@ -20,7 +20,7 @@ using System.Collections;
 //flip 2&4
 //10011
 
-public class LightPuzzle : MonoBehaviour {
+public class LightPuzzle : Puzzle {
 
 	public static LightPuzzle S;
 	public BitArray toggled_lights;
@@ -29,7 +29,6 @@ public class LightPuzzle : MonoBehaviour {
 	private BitArray solution;
 
     public GameObject[] Levers;
-	public bool solved = false;
 
 	void Awake(){
 		S = this;

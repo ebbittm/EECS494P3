@@ -19,7 +19,6 @@ public class MapManager : MonoBehaviour {
 
     // these fields are for faster access to cacheable data
     private Dictionary<char, tile> map = new Dictionary<char, tile>();
-    private float floorHeight;
 
 	// Use this for initialization
 	void Start () {
@@ -27,8 +26,6 @@ public class MapManager : MonoBehaviour {
         foreach (tile t in tileKey) {
             this.map[t.character] = t;
         }
-
-        this.floorHeight = floorPrefab.GetComponent<Renderer>().bounds.size.y; // cache the height of the floor prefab
 
         LoadMapFile(this.mapFile); // load the level into the scene
 	}
@@ -104,7 +101,7 @@ public class MapManager : MonoBehaviour {
                 //print("Line " + y.ToString() + ": \"" + line + "\"");
                 if (line != null) {
                     for (int x = 0; x < line.Length; x++) { // for each character
-                        Vector3 pos = new Vector3(x, 0f, y); // create a position vector based on its position in the text file
+                        Vector3 pos = new Vector3(y, 0f, x); // create a position vector based on its position in the text file (reversed due to weirdness)
                         if (line[x] == '.') { // if this is part of a larger prefab
                             ; // do nothing
                         }
@@ -115,7 +112,7 @@ public class MapManager : MonoBehaviour {
                 }
             }
 
-            PlaceFloor(width, height); // place flooring underneath the map
+            PlaceFloor(height, width); // place flooring underneath the map (reversed due to weirdness)
             print("Map loaded!");
         }
         catch (Exception e) { // catch exceptions

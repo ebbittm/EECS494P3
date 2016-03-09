@@ -56,6 +56,7 @@ public class PortalManager : MonoBehaviour {
 			}
 		} else {
 			nextPortal = portalMap [portalNum];
+			print (nextPortal);
 		}
 
 		// Otherwise you'll just bounce back and forth between the portals

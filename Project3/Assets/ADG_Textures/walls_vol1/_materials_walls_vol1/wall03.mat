@@ -172,6 +172,18 @@ Material:
         second: 0
       data:
         first:
+          name: _ShadeRange
+        second: 0.02
+      data:
+        first:
+          name: _ShadingStrength
+        second: 0
+      data:
+        first:
+          name: _RMS
+        second: 0.06595752
+      data:
+        first:
           name: _distance_start
         second: 10
       data:
@@ -216,20 +228,8 @@ Material:
         second: 8
       data:
         first:
-          name: _ShadeRange
-        second: 0.02
-      data:
-        first:
-          name: _ShadingStrength
-        second: 0
-      data:
-        first:
           name: _SHADOW_SMOOTH_STEPS
         second: 4
-      data:
-        first:
-          name: _RMS
-        second: 0.06595752
       data:
         first:
           name: _SidewallTextureOffset
@@ -266,7 +266,7 @@ Material:
       data:
         first:
           name: _EmissionColor
-        second: {r: 0.25735295, g: 0.25735295, b: 0.25735295, a: 0}
+        second: {r: 0.25, g: 0.19485295, b: 0.19485295, a: 0}
       data:
         first:
           name: _Color
