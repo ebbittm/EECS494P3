@@ -157,6 +157,12 @@ public class MainPlayerController : MonoBehaviour {
                 Player.transform.rotation = newRot;
             }
 		}
+        else if(other.gameObject.tag == "Beacon")
+        {
+            Player1Controller.Instance.Win = true;
+            Gravity = 0f;
+            Destroy(GameObject.Find("UpperBounds").gameObject);
+        }
 	}
 
     void OnTriggerStay(Collider other)

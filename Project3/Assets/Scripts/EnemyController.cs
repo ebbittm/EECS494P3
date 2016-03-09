@@ -25,7 +25,7 @@ public class EnemyController : MonoBehaviour {
 
     void Awake () {
         Nav = GetComponent<NavMeshAgent>();
-        PatrolPoints = GameObject.FindGameObjectsWithTag("PatrolPoint");
+        //PatrolPoints = GameObject.FindGameObjectsWithTag("PatrolPoint");
         Sight = GetComponentInChildren<EnemySight>();
         Player = GameObject.FindGameObjectWithTag("Player");
         CurrentState = State.WANDER;

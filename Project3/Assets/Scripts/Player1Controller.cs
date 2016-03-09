@@ -23,6 +23,7 @@ public class Player1Controller : MonoBehaviour {
     public bool ArrowPuzzle;
 
     public bool Dead;
+    public bool Win;
 
     public GameObject Compass;
     
@@ -75,7 +76,7 @@ public class Player1Controller : MonoBehaviour {
         MainPlayerController.Instance.Movement = Vector3.zero;
         Transform position = MainPlayerController.Instance.Player.transform;
 
-        if (MainPlayerController.Instance.CurrentState != State.SLIDE)
+        if (MainPlayerController.Instance.CurrentState != State.SLIDE && !Win)
         {
             if (Input.GetKey(KeyCode.W))
             {
@@ -93,6 +94,10 @@ public class Player1Controller : MonoBehaviour {
             {
                 MainPlayerController.Instance.Movement += position.right;
             }
+        }
+        else if(Win)
+        {
+            transform.position += position.up * 10 * Time.deltaTime;
         }
         else
         {

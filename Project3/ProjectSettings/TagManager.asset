@@ -22,6 +22,7 @@ TagManager:
   - OxygenSource
   - Rotor
   - IntroLever
+  - Beacon
   layers:
   - Default
   - TransparentFX

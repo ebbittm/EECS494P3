@@ -7,7 +7,7 @@ public class OxygenController : MonoBehaviour {
 
     public float MaxOxygen = 1.0f;
     public float CurrentOxygen = 1f;
-    public float OxygenLoss = 0.05f;
+    public float OxygenLoss = 0.01f;
     public float OxygenTankLength;
     public float LastTime = 0f;
 
