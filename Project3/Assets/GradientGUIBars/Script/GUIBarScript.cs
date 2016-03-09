@@ -51,7 +51,6 @@ public class GUIBarScript : MonoBehaviour {
 	//Stanard OnGUI Method
 	void OnGUI()
 	{
-
 		//UpdateBar is a very large function so i'm only excuting it when i have to.
 		if (
 			Mathf.Round(CurrentValue * 100f) != Mathf.Round(Value * 100f)
@@ -66,9 +65,9 @@ public class GUIBarScript : MonoBehaviour {
 		{
 			GUI.DrawTexture(new Rect(Position.x,Position.y,Background.width * ScaleSize,Background.height * ScaleSize),Background);
 		}
-
+        
 		GUI.DrawTexture(new Rect(Position.x,Position.y,ValueBar.width * ScaleSize,ValueBar.height * ScaleSize),ValueBar);
-
+        
 		//if you don't have a foreground texture i won't draw it
 		if (Foreground != null)
 		{
