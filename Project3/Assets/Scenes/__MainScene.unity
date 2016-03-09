@@ -5967,9 +5967,76 @@ Prefab:
       propertyPath: Green.g
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 158340, guid: e30597d0deb9b417fac81d42ec64ad72, type: 2}
+      propertyPath: m_TagString
+      value: Lever
+      objectReference: {fileID: 0}
+    - target: {fileID: 144870, guid: e30597d0deb9b417fac81d42ec64ad72, type: 2}
+      propertyPath: m_TagString
+      value: Lever
+      objectReference: {fileID: 0}
+    - target: {fileID: 176034, guid: e30597d0deb9b417fac81d42ec64ad72, type: 2}
+      propertyPath: m_TagString
+      value: Lever
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e30597d0deb9b417fac81d42ec64ad72, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &92038873 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 158340, guid: e30597d0deb9b417fac81d42ec64ad72, type: 2}
+  m_PrefabInternal: {fileID: 92038872}
+--- !u!1 &92038874 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 144870, guid: e30597d0deb9b417fac81d42ec64ad72, type: 2}
+  m_PrefabInternal: {fileID: 92038872}
+--- !u!1 &92038875 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 176034, guid: e30597d0deb9b417fac81d42ec64ad72, type: 2}
+  m_PrefabInternal: {fileID: 92038872}
+--- !u!1 &92038876 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 128640, guid: e30597d0deb9b417fac81d42ec64ad72, type: 2}
+  m_PrefabInternal: {fileID: 92038872}
+--- !u!114 &92038877
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 92038873}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5488a8994f549e84cb2a049bc9df0e0f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LightPuzzle: {fileID: 92038876}
+  LeverIntroPuzzle: {fileID: 144412, guid: ca309bbc9e9e748a9a1cdb608dd8cb9d, type: 2}
+--- !u!114 &92038878
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 92038874}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5488a8994f549e84cb2a049bc9df0e0f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LightPuzzle: {fileID: 92038876}
+  LeverIntroPuzzle: {fileID: 144412, guid: ca309bbc9e9e748a9a1cdb608dd8cb9d, type: 2}
+--- !u!114 &92038879
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 92038875}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5488a8994f549e84cb2a049bc9df0e0f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LightPuzzle: {fileID: 92038876}
+  LeverIntroPuzzle: {fileID: 144412, guid: ca309bbc9e9e748a9a1cdb608dd8cb9d, type: 2}
 --- !u!1 &93146439
 GameObject:
   m_ObjectHideFlags: 0
