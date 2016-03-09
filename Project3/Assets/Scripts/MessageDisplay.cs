@@ -13,6 +13,7 @@ public class MessageDisplay : MonoBehaviour {
     public float messageInterval = 0.5f; // the delay between messages when multiple messages are queued
     public string messageSuitError = "ERROR:\n\tSuit malfunction detected\n\tUser control impossible\n\tControl transferred to remote operator";
     public string messageDisplayError = "ERROR:\n\tDisplay malfunction detected\n\tOxygen display unavailable\n\tRemote operator oxygen readout enabled";
+	public string messageFinalError = "";
     public GameObject UITextPrefab;
 
     public static MessageDisplay S; // singleton
@@ -42,7 +43,8 @@ public class MessageDisplay : MonoBehaviour {
 
         // queue introduction messages
         this.QueueMessage(messageSuitError);
-        //this.QueueMessage(messageDisplayError);
+        this.QueueMessage(messageDisplayError);
+		this.QueueMessage(messageFinalError);
 	}
     
     // queues a message to be played
