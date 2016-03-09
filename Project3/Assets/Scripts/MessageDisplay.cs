@@ -41,15 +41,28 @@ public class MessageDisplay : MonoBehaviour {
         this.UIElement = this.GetComponent<Text>();
         CreateTextBorder();
 
+        // freeze player for duration of introduction messages
+        float totalMessageLength = MessageLength(messageSuitError);
+        totalMessageLength += this.messageInterval * 1; // specifies the number of intervals for the intro messages and adds to the time needed to freeze
+        Player1Controller.Instance.FreezeMovement(totalMessageLength);
         // queue introduction messages
         this.QueueMessage(messageSuitError);
         //this.QueueMessage(messageDisplayError);
 		this.QueueMessage(messageFinalError);
+		//this.QueueMessage(messageFinalError);
 	}
     
     // queues a message to be played
     public void QueueMessage(string messageText) {
         this.messageQueue.Enqueue(messageText);
+    }
+
+    // returns how long it will take to complete a message display given its text
+    float MessageLength(string messageText) {
+        if (messageText == "") { // for an empty message
+            return 0.0f; // consider its display time zero
+        }
+        return (float)messageText.Length * this.characterDelay + this.messageLife;
     }
 
     // kicks off a message across the screen using a "typing" effect

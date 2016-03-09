@@ -26,6 +26,10 @@ public class Player1Controller : MonoBehaviour {
     public bool Win;
 
     public GameObject Compass;
+
+    private float freezeTimer = 0.0f;
+    private float frozenTimeElapsed = 0.0f;
+    public bool frozen = false;
     
     void Awake () {
         Instance = this;
@@ -35,8 +39,19 @@ public class Player1Controller : MonoBehaviour {
 	}
 	
 	void Update () {
+        GetRotation(); // always rotate, even when frozen
+
+        if (frozen)
+        {
+            this.frozenTimeElapsed += Time.deltaTime; // update frozenTimeElapsed
+            if (this.frozenTimeElapsed > this.freezeTimer) // if the player has been frozen long enough
+            {
+                this.frozen = false; // unfreeze the player
+            }
+
+            return; // prevent further movement
+        }
         GetMovement();
-        GetRotation();
         GetAuxiliaryActionInput();
 
         if (CrouchToggled)
@@ -68,6 +83,14 @@ public class Player1Controller : MonoBehaviour {
 
         MainPlayerController.Instance.UpdatePlayer();
         PlayerDead();
+    }
+
+    // freezes the player's movement for the specified amount of time
+    public void FreezeMovement(float time)
+    {
+        this.freezeTimer = time; // set the amount of time the player will be frozen
+        this.frozenTimeElapsed = 0.0f; // set the frozen time elapsed to zero
+        this.frozen = true; // mark the player as being frozen
     }
 
     void GetMovement()
