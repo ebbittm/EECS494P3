@@ -4,6 +4,8 @@ using System.Collections;
 public class RotorPuzzle : Puzzle {
 
 	public static RotorPuzzle S;
+    public GameObject Beacon;
+    public Color Green;
 
 	public Rotor[] rotors;
 
@@ -19,6 +21,7 @@ public class RotorPuzzle : Puzzle {
 			return;
 		if (ReadRotors () == solution) {
 			solved = true;
+            Beacon.GetComponent<Light>().color = Green;
 		}
 	}
 

@@ -25,6 +25,8 @@ public class LightPuzzle : Puzzle {
 	public static LightPuzzle S;
 	public BitArray toggled_lights;
 	public BitArray levers;
+    public GameObject Beacon;
+    public Color Green;
 
 	private BitArray solution;
 
@@ -58,6 +60,7 @@ public class LightPuzzle : Puzzle {
 			}
 		}
 		solved = true;
+        Beacon.GetComponent<Light>().color = Green;
 	}
 
 	void GetToggleInput(){

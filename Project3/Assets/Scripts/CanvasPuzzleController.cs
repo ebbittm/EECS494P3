@@ -7,6 +7,8 @@ public class CanvasPuzzleController : Puzzle {
     public GameObject HUD;
     public GameObject Puzzle;
     public GameObject OxygenTank;
+    public GameObject Beacon;
+    public Color Green;
 
 
 	// Use this for initialization
@@ -23,6 +25,7 @@ public class CanvasPuzzleController : Puzzle {
             HUD.SetActive(true);
             Puzzle.SetActive(false);
             OxygenTank.SetActive(true);
+            Beacon.GetComponent<Light>().color = Green;
         }
 	}
 

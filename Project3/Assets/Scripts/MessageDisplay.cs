@@ -42,7 +42,7 @@ public class MessageDisplay : MonoBehaviour {
 
         // queue introduction messages
         this.QueueMessage(messageSuitError);
-        this.QueueMessage(messageDisplayError);
+        //this.QueueMessage(messageDisplayError);
 	}
     
     // queues a message to be played
