@@ -11,9 +11,6 @@ public class MessageDisplay : MonoBehaviour {
     public Color textBorderColor = new Color(0, 0, 0); // the color of the text's border
     public bool displayTextBorder = true; // whether or not to display the text border
     public float messageInterval = 0.5f; // the delay between messages when multiple messages are queued
-    public string messageSuitError = "ERROR:\n\tSuit malfunction detected\n\tUser control impossible\n\tControl transferred to remote operator";
-    public string messageDisplayError = "ERROR:\n\tDisplay malfunction detected\n\tOxygen display unavailable\n\tRemote operator oxygen readout enabled";
-	public string messageFinalError = "";
     public GameObject UITextPrefab;
 
     public static MessageDisplay S; // singleton
@@ -29,7 +26,7 @@ public class MessageDisplay : MonoBehaviour {
     private Queue<string> messageQueue = new Queue<string>(); // the queue of messages that will be played
 
 	// Use this for initialization
-	void Start () {
+	void Awake() {
 
         // establish the MessageDisplay singleton
         if (S == null) {
@@ -40,16 +37,6 @@ public class MessageDisplay : MonoBehaviour {
         }
         this.UIElement = this.GetComponent<Text>();
         CreateTextBorder();
-
-        // freeze player for duration of introduction messages
-        float totalMessageLength = MessageLength(messageSuitError);
-        totalMessageLength += this.messageInterval * 1; // specifies the number of intervals for the intro messages and adds to the time needed to freeze
-        Player1Controller.Instance.FreezeMovement(totalMessageLength);
-        // queue introduction messages
-        this.QueueMessage(messageSuitError);
-        this.QueueMessage(messageDisplayError);
-		this.QueueMessage(messageFinalError);
-		//this.QueueMessage(messageFinalError);
 	}
     
     // queues a message to be played
@@ -58,7 +45,7 @@ public class MessageDisplay : MonoBehaviour {
     }
 
     // returns how long it will take to complete a message display given its text
-    float MessageLength(string messageText) {
+    public float MessageLength(string messageText) {
         if (messageText == "") { // for an empty message
             return 0.0f; // consider its display time zero
         }
