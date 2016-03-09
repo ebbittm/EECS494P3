@@ -5644,7 +5644,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &83732269
 Transform:
   m_ObjectHideFlags: 0
@@ -5684,7 +5684,7 @@ MonoBehaviour:
   m_ShadowmapMode: 0
   m_Cameras:
   - {fileID: 965519980}
-  m_CurrentCamera: {fileID: 965519980}
+  m_CurrentCamera: {fileID: 0}
   m_Size: {x: 10, y: 10, z: 20}
   m_SpotNear: 0.05
   m_SpotFar: 1
@@ -6134,6 +6134,10 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 461734, guid: e30597d0deb9b417fac81d42ec64ad72, type: 2}
       propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 128640, guid: e30597d0deb9b417fac81d42ec64ad72, type: 2}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -11898,7 +11902,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &175135660
 Transform:
   m_ObjectHideFlags: 0
@@ -11938,7 +11942,7 @@ MonoBehaviour:
   m_ShadowmapMode: 0
   m_Cameras:
   - {fileID: 965519980}
-  m_CurrentCamera: {fileID: 965519980}
+  m_CurrentCamera: {fileID: 0}
   m_Size: {x: 10, y: 10, z: 20}
   m_SpotNear: 0.05
   m_SpotFar: 1
@@ -20879,7 +20883,7 @@ Prefab:
       objectReference: {fileID: 235020161}
     - target: {fileID: 166166, guid: 4e4714e6f33d74053bb8f8656ad30245, type: 2}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4e4714e6f33d74053bb8f8656ad30245, type: 2}
@@ -24433,7 +24437,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &394242211
 Transform:
   m_ObjectHideFlags: 0
@@ -24473,7 +24477,7 @@ MonoBehaviour:
   m_ShadowmapMode: 0
   m_Cameras:
   - {fileID: 965519980}
-  m_CurrentCamera: {fileID: 965519980}
+  m_CurrentCamera: {fileID: 0}
   m_Size: {x: 10, y: 10, z: 20}
   m_SpotNear: 0.05
   m_SpotFar: 1
@@ -98605,7 +98609,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1604073722
 Transform:
   m_ObjectHideFlags: 0
@@ -101581,6 +101585,10 @@ Prefab:
     - target: {fileID: 452362, guid: 4e5cc3879e33f4ccc94125d5270655f5, type: 2}
       propertyPath: m_RootOrder
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 196892, guid: 4e5cc3879e33f4ccc94125d5270655f5, type: 2}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4e5cc3879e33f4ccc94125d5270655f5, type: 2}
@@ -113156,6 +113164,7 @@ MonoBehaviour:
   Dead: 0
   Win: 0
   Compass: {fileID: 1719592904}
+  frozen: 0
 --- !u!143 &1859673850
 CharacterController:
   m_ObjectHideFlags: 0
@@ -113201,6 +113210,7 @@ MonoBehaviour:
   OxygenRegen: 0.001
   SlideSpeed: 20
   CurrentState: 0
+  Ship: {fileID: 0}
 --- !u!23 &1859673852
 MeshRenderer:
   m_ObjectHideFlags: 0

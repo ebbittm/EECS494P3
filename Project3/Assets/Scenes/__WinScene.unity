@@ -659,11 +659,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11434624, guid: de46e3653a2d9bc4da6c052e1fdad21b, type: 2}
       propertyPath: messageSuitError
-      value: 'MISSION: Explore the planet for resources'
+      value: 'MISSION STATUS:  Complete.  Safely Returned to Base.'
       objectReference: {fileID: 0}
     - target: {fileID: 11434624, guid: de46e3653a2d9bc4da6c052e1fdad21b, type: 2}
       propertyPath: messageDisplayError
-      value: 'MISSION STATUS: Crash landed'
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 11491156, guid: de46e3653a2d9bc4da6c052e1fdad21b, type: 2}
       propertyPath: m_FontData.m_Alignment
@@ -679,7 +679,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11434624, guid: de46e3653a2d9bc4da6c052e1fdad21b, type: 2}
       propertyPath: messageFinalError
-      value: 'NEW MISSION: Find the beacon'
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: de46e3653a2d9bc4da6c052e1fdad21b, type: 2}
@@ -1055,7 +1055,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1242982516}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d567357213b71492fb27ab1ab06dde9d, type: 3}
+  m_Script: {fileID: 11500000, guid: a56cd0812747d62478bf388a53194f9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1268856564

@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 using System.Collections;
 
 public enum State { STAND, CROUCH, CRAWL, RUN, SLIDE };
@@ -167,6 +168,7 @@ public class MainPlayerController : MonoBehaviour {
         else if(other.gameObject == Ship)
         {
             //print to the player the game is over, WIN!
+            SceneManager.LoadScene("__WinScene");
         }
 	}
 
