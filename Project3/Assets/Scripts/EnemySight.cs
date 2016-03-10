@@ -26,13 +26,26 @@ public class EnemySight : MonoBehaviour {
             float angle = Vector3.Angle(direction, transform.forward);
             //if(angle < FieldOfView * 0.5f)
             //{
-                if(CheckIfVisible())
+            if (MainPlayerController.Instance.CurrentState != State.CROUCH)
+            {
+                if (CheckIfVisible())
                 {
-                   /// print("can see player");
+                    /// print("can see player");
                     PlayerInView = true;
                     FieldOfView = 180f;
                     LastSeen = Player.transform.position;
                 }
+            }
+            else if (angle < FieldOfView * 0.5f)
+            {
+                if (CheckIfVisible())
+                {
+                    /// print("can see player");
+                    PlayerInView = true;
+                    FieldOfView = 180f;
+                    LastSeen = Player.transform.position;
+                }
+            }
             //}
         }
 	}

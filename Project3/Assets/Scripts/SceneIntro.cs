@@ -3,7 +3,7 @@ using System.Collections;
 
 public class SceneIntro : MonoBehaviour {
 
-    public enum Scene {Intro, Opening, Main};
+    public enum Scene {Intro, Opening, Main, Win};
     public Scene scene;
 
 	// Use this for initialization
@@ -22,6 +22,10 @@ public class SceneIntro : MonoBehaviour {
         {
             OpeningScene();
         }
+        if(this.scene == Scene.Win)
+        {
+            WinScene();
+        }
 	}
 
     void IntroScene()
@@ -37,6 +41,12 @@ public class SceneIntro : MonoBehaviour {
     void OpeningScene()
     {
         return; // do nothing
+    }
+
+    void WinScene()
+    {
+        string winMessage = "MISSION STATUS: Complete.  Pilot safely returned to ship.";
+        MessageDisplay.S.QueueMessage(winMessage);
     }
 
     void MainScene()

@@ -5,6 +5,7 @@ public class EnemyController : MonoBehaviour {
     public enum State { WANDER, CHASE };
     public NavMeshAgent Nav;
     public float CurrentSpeed;
+    public float PatrolWaitTime = 1f;
 
     public State CurrentState;
     private EnemySight Sight;
@@ -14,6 +15,7 @@ public class EnemyController : MonoBehaviour {
     public GameObject[] PatrolPoints;
 
     private int PatrolPointIndex;
+    private float PatrolTimer;
 
     //chasing variables
     public float ChaseSpeed = 7.0f;
@@ -59,15 +61,23 @@ public class EnemyController : MonoBehaviour {
         Nav.speed = WanderSpeed;
         if (Nav.remainingDistance < Nav.stoppingDistance)
         {
-            if(PatrolPointIndex == PatrolPoints.Length - 1)
+            PatrolTimer += Time.deltaTime;
+            if (PatrolTimer >= PatrolWaitTime)
             {
-                PatrolPointIndex = 0;
+                if (PatrolPointIndex == PatrolPoints.Length - 1)
+                {
+                    PatrolPointIndex = 0;
+                }
+                else
+                {
+                    PatrolPointIndex++;
+                }
+                PatrolTimer = 0;
             }
-            else
-            {
-                PatrolPointIndex++;
-            }
-            //PatrolPointIndex = Random.Range(0, PatrolPoints.Length);
+        }
+        else
+        {
+            PatrolTimer = 0;
         }
         Nav.destination = PatrolPoints[PatrolPointIndex].transform.position;
 

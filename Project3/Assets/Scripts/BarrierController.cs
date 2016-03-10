@@ -54,9 +54,7 @@ public class BarrierController : MonoBehaviour {
 
 	//Door opens automatically when player is close
 	void OnTriggerEnter(Collider col){
-		print ("Trying to open door");
-		print (isOpen);
-		if (isOpen) {
+		if (isOpen && col.gameObject.tag == "Player") {
 			Door.GetComponent<BarrierInterpolator>().ready = true;
 		}
 	}

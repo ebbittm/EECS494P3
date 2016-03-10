@@ -32,6 +32,7 @@ public class MainPlayerController : MonoBehaviour {
 
     void Awake () {
         Instance = this;
+        Cursor.lockState = CursorLockMode.Locked;
         Player = GameObject.Find("Player");
     }
 
@@ -182,19 +183,11 @@ public class MainPlayerController : MonoBehaviour {
 
     void OnCollisionStay(Collision other)
     {
-        print("here");
+        print(other.gameObject);
         if(other.gameObject.tag == "Enemy")
         {
             OxygenController.Instance.LoseOxygen();
             GUIBarScript.Instance.ForceUpdate();
-        }
-    }
-
-    void PlayerDead()
-    {
-        if(OxygenController.Instance.CurrentOxygen <= 0)
-        {
-            //player is dead
         }
     }
 }
