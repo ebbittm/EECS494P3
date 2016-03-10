@@ -20,7 +20,7 @@ public class DoorController : MonoBehaviour
 
 	//Interpolates the Barrier away with BarrierInterpolator
 	public void RemoveBarrier(){
-		BarrierInterpolator.S.ready = true;
+		//BarrierInterpolator.S.ready = true;
 		isOpen = true;
 	}
 }
