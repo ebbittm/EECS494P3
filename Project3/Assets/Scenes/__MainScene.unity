@@ -51914,10 +51914,7 @@ TextMesh:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 840688108}
-  m_Text: '10011
-
-
-    75309'
+  m_Text: 75309
   m_OffsetZ: 0
   m_CharacterSize: 0.2
   m_LineSpacing: 0.5
