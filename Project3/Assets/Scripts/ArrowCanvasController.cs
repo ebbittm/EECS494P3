@@ -40,7 +40,7 @@ public class ArrowCanvasController : MonoBehaviour
 
     void SpawnButtons()
     {
-        float rand = Random.Range(.5f, 2.0f);
+        float rand = Random.Range(2.0f, 4.0f);
         if (Time.time - LastTime > rand)
         {
             LastTime = Time.time;
